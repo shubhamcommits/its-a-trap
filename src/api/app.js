@@ -54,11 +54,11 @@ if (!fs.existsSync(dir)){
 app.use('/uploads', express.static(path.join(__dirname, '../../uploads/')));
 
 // static folder
-app.use(express.static(path.join(__dirname, '../../public/dist/'), {redirect: false}));
+app.use(express.static(path.join(__dirname, '../../public/dist/client/'), {redirect: false}));
 
 // Routes which should handle request
 app.all('/', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../../client/public/index.html'));
+  res.sendFile(path.join(__dirname, '../../public/dist/client/index.html'));
 });
 
 app.use('/api/test', testRoutes, cors(corsOptions));

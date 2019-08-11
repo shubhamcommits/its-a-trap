@@ -1,6 +1,8 @@
 # Node.js packages
 node_modules/
 
+public/node_modules
+
 package-lock.json
 
 uploads/
