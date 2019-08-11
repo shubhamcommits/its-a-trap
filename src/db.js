@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // Connect mongoose to db
-const dbURL = process.env.dbURL || 'mongodb://shubham:shubham@123@ds161397.mlab.com:61397/trap';
+const dbURL = process.env.dbURL || 'mongodb://shubham:shubham123@ds161397.mlab.com:61397/trap';
 mongoose.connect(dbURL,  { useNewUrlParser: true,  useCreateIndex: true });
 
 // Log Mongoose connection status changes:
