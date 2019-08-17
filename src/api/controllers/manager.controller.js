@@ -103,7 +103,7 @@ const add_pending_mentor = async (req, res, next) => {
       const mentor_id = req.body.mentor_id;
 
       const body = {
-        mentors: mentor_id
+        pending_mentors: mentor_id
       }
 
       const manager = await Manager.findByIdAndUpdate({
@@ -154,14 +154,19 @@ const approve_pending_mentor = async (req, res, next) => {
     const manager_id = req.body.manager_id;
     const mentor_id = req.body.mentor_id;
 
-    const body = {
+    const body1 = {
       pending_mentors: mentor_id
+    }
+
+    const body2 = {
+      mentors: mentor_id
     }
 
     const manager = await Manager.findByIdAndUpdate({
       _id: manager_id
     }, {
-      $pullAll: body
+      $pullAll: body1,
+      $push: body2
     }, {
       new: true
     });

@@ -1,0 +1,22 @@
+<h2>{{mentor_shg.mentor.first_name}} {{mentor_shg.mentor.last_name}}</h2>
+<span>Email : {{mentor_shg.mentor.email}}</span>
+<span>Age : {{mentor_shg.mentor.age}}</span>
+<span>Sex : {{mentor_shg.mentor.sex}}</span>
+<span>Address : {{mentor_shg.mentor.address}}</span>
+<span>Country : {{mentor_shg.mentor.counrty}}</span>
+<span>Phone Number : {{mentor_shg.mentor.phone_number}}</span>
+<p>About : {{mentor_shg.mentor.about}}</p>
+
+<hr>
+
+<h3>SHG : {{mentor_shg.shg.name}}</h3>
+<p>About : {{mentor_shg.shg.about}}</p>
+<span>Address : {{mentor_shg.shg.address}}</span>
+<span>Country : {{mentor_shg.shg.country}}</span>
+<span>Amount : {{mentor_shg.shg.amount}}</span>
+<h5>Logs :- </h5>
+<ul>
+    <li *ngFor="let log og mentor_shg.shg.logs">
+        {{log}}
+    </li>
+</ul>
