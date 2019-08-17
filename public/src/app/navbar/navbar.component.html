@@ -4,7 +4,11 @@
         </span>
     <ul class="nav" role="navigation" *ngIf="current_user=='home'">
       <li class="active">
+          <!-- <img src="../../assets/home.png" class="img img-responsive feed-avatar"> -->
         <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+      </li>
+      <li class="active">
+        <a [routerLink]="['/achievements']" routerLinkActive="router-link-active" >Achievements</a>
       </li>
       <li>
         <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
@@ -37,6 +41,9 @@
       <li>
           <a [routerLink]="['/transaction']" routerLinkActive="router-link-active">Transactions</a>
         </li>
+        <li>
+            <a href="#">LMS</a>
+          </li>
       <li>
         <a href="#">contact</a>
       </li>

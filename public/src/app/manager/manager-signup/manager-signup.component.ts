@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import {Location} from '@angular/common';
 import { AuthService } from 'src/shared/auth.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-manager-signup',
@@ -10,7 +11,8 @@ import { AuthService } from 'src/shared/auth.service';
 })
 export class ManagerSignupComponent implements OnInit {
 
-  constructor(private _location: Location, private authService: AuthService) { }
+  constructor(private _location: Location, private authService: AuthService, 
+    private ngxService: NgxUiLoaderService) { }
 
   first_name: any;
   last_name:any;
@@ -23,8 +25,14 @@ export class ManagerSignupComponent implements OnInit {
   phone_number: any;
 
   async ngOnInit() {
+    this.ngxService.start(); // start foreground loading with 'default' id
+ 
+    // Stop the foreground loading after 5s
+    setTimeout(() => {
+      this.ngxService.stop(); // stop foreground loading with 'default' id
+    }, 500);
     const { value: password } = await Swal.fire({
-      title: 'Enter your password',
+      title: 'Enter Global Password',
       input: 'password',
       inputPlaceholder: 'Enter your password',
       inputAttributes: {
