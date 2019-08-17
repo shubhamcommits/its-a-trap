@@ -31,12 +31,7 @@ const Mentor_Schema = new Schema({
         default: 0
     },
     sex: {
-        type: String,
-        default: []
-    },
-    nationality: {
-        type: Object,
-        default: null
+        type: String
     },
     address: {
         type: String,
@@ -51,13 +46,11 @@ const Mentor_Schema = new Schema({
         default: 0
     },
     shg: {
-        type: Object,
-        ref: 'SHG',
+        type: String,
         default: null
     },
     mentees: [{
-        type: Object,
-        ref: 'User',
+        type: String,
         default: []
     }],
     has_manager: {
@@ -65,8 +58,7 @@ const Mentor_Schema = new Schema({
         default: false
     },
     manager: {
-        type: Object,
-        ref: 'Manager',
+        type: String,
         default: null
     },
     creation_date: {

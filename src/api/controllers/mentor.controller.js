@@ -1,109 +1,180 @@
-const { User, Mentor, Manager, SHG  } = require('../models');
+const { Mentor } = require('../models');
 const { sendErr } = require('../../utils');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { ObjectId } = require('mongodb'); 
 
-const login_user = async (req, res, next) => {
+/*  ======================
+ *  -- MENTORS CONTROLLERS --
+ *  ======================
+ */
 
-    try {
-        const user = await User.findOne({ email: req.body.email }).exec();
-        if(!user){
-            return sendErr(res, '', 'Error! User not found, invalid id or unauthorized request', 404);
-        }
-        const check_pass = await bcrypt.compare(req.body.password, user.password, (err, result)=>{
-            if(err){
-                return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
-            }
-            if(result){
-                const token = jwt.sign({
-                    email: user.email,
-                    _id: user._id
-                }, process.env.JWT_KEY, 
-                {
-                    expiresIn: "30 days"
-                });
-                return res.status(200).json({
-                    message: `User found!`,
-                    token: token,
-                    user: user
-                  })
-            }
-            return sendErr(res, '', 'Authentication error, please try again!', 404);
-        });
-    }
+// -| Mentor main controllers |-
 
-    catch (err) {
-        return sendErr(res, err);
-    }
+const get_all_mentors = async (req, res, next) => {
+  try {
+    const mentor = await Mentor.find()
+      .sort('-created_date')
+      .lean();
+
+    return res.status(200).json({
+      message: 'All mentors found!',
+      mentor
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
 };
 
-const login_mentor = async (req, res, next) => {
+const get_mentor = async (req, res, next) => {
+  try {
+    const mentor_id = req.body.mentor_id;
 
-    try {
-        const mentor = await Mentor.findOne({ email: req.body.email }).exec();
-        if(!mentor){
-            return sendErr(res, '', 'Error! Mentor not found, invalid id or unauthorized request', 404);
+    const mentor =  await Mentor.findById({
+      _id: mentor_id
+    });
+
+    return res.status(200).json({
+      message: 'User found!',
+      mentor      
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+const add_mentor = async (req, res, next) => {
+  try {
+    Mentor.find({ email: req.body.email }).exec()
+      .then((mentor) => {
+        if (mentor.length >= 1) {
+          return sendErr(res, mentor, 'Mentor Already exist', 401);
         }
-        const check_pass = await bcrypt.compare(req.body.password, mentor.password, (err, result)=>{
-            if(err){
-                return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
+        else {
+          bcrypt.hash(req.body.password, 10, (err, hash) => {
+            if (err) {
+              return sendErr(res, err, 'An error ocurred trying to create the password, please choose another password!', 401);
             }
-            if(result){
-                const token = jwt.sign({
+            else {
+              const mentor_data = new Mentor({
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                password: hash,
+                age: req.body.age,
+                sex: req.body.sex,
+                address: req.body.address,
+                country: req.body.country,
+                phone_number: req.body.phone_number
+              });
+
+              mentor_data.save()
+                .then((mentor) => {
+                  const token = jwt.sign({
                     email: mentor.email,
                     _id: mentor._id
                 }, process.env.JWT_KEY, 
                 {
                     expiresIn: "30 days"
                 });
-                return res.status(200).json({
-                    message: `Mentor found!`,
-                    token: token,
-                    mentor: mentor
-                  })
+                  return res.status(200).json({
+                    message: 'Mentor Created!',
+                    mentor: mentor,
+                    Token: token
+                  });
+                })
+                .catch((err) => {
+                  return sendErr(res, err);
+                })
             }
-            return sendErr(res, '', 'Authentication error, please try again!', 404);
-        });
-    }
-
-    catch (err) {
-        return sendErr(res, err);
-    }
-};
-
-const login_manager = async (req, res, next) => {
-
-    try {
-        const manager = await Manager.findOne({ email: req.body.email }).exec();
-        if(!manager){
-            return sendErr(res, '', 'Error! Manager not found, invalid id or unauthorized request', 404);
+          })
         }
-        const check_pass = await bcrypt.compare(req.body.password, manager.password, (err, result)=>{
-            if(err){
-                return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
-            }
-            if(result){
-                const token = jwt.sign({
-                    email: manager.email,
-                    _id: manager._id
-                }, process.env.JWT_KEY, 
-                {
-                    expiresIn: "30 days"
-                });
-                return res.status(200).json({
-                    message: `Manager found!`,
-                    token: token,
-                    manager: manager
-                  })
-            }
-            return sendErr(res, '', 'Authentication error, please try again!', 404);
-        });
-    }
+      })
 
-    catch (err) {
-        return sendErr(res, err);
+  }
+  catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+const add_manager = async (req, res, next) => {
+    try {
+      const mentor_id = req.body.mentor_id;
+      const manager_id = req.body.manager_id;
+
+      const body = {
+        manager: manager_id
+      }
+
+      const mentor = await Mentor.findByIdAndUpdate({
+        _id: mentor_id
+      }, {
+        $set: body
+      }, {
+        new: true
+      });
+  
+      return res.status(200).json({
+        message: 'Mentor Profile updated!',
+        mentor
+      });
+    } catch (err) {
+      return sendErr(res, err);
     }
 };
+
+const create_shg = async (req, res, next) => {
+    try {
+      const mentor_id = req.body.mentor_id;
+      const shg_id = req.body.shg_id;
+
+      const body = {
+        shg: shg_id
+      }
+
+      const mentor = await Mentor.findByIdAndUpdate({
+        _id: mentor_id
+      }, {
+        $set: body
+      }, {
+        new: true
+      });
+  
+      return res.status(200).json({
+        message: 'Mentor Profile updated!',
+        mentor
+      });
+    } catch (err) {
+      return sendErr(res, err);
+    }
+};
+
+const add_mentee = async (req, res, next) => {
+    try {
+      const mentor_id = req.body.mentor_id;
+      const user_id = req.body.user_id;
+
+      const body = {
+        mentees: user_id
+      }
+
+      const mentor = await Mentor.findByIdAndUpdate({
+        _id: mentor_id
+      }, {
+        $push: body
+      }, {
+        new: true
+      });
+  
+      return res.status(200).json({
+        message: 'Mentor Profile updated!',
+        mentor
+      });
+    } catch (err) {
+      return sendErr(res, err);
+    }
+};
+
 
 /*  =============
  *  -- EXPORTS --
@@ -111,8 +182,10 @@ const login_manager = async (req, res, next) => {
  */
 
 module.exports = {
-    login_user,
-    login_mentor,
-    login_manager
+  get_all_mentors,
+  get_mentor,
+  add_mentor,
+  add_manager,
+  create_shg,
+  add_mentee
 };
-

@@ -34,10 +34,6 @@ const User_Schema = new Schema({
         type: Object,
         default: []
     },
-    nationality: {
-        type: Object,
-        default: null
-    },
     address: {
         type: String,
         default: null
@@ -51,18 +47,15 @@ const User_Schema = new Schema({
         default: 0
     },
     shg: {
-        type: Object,
-        ref: 'SHG',
+        type: String,
         default: null
     },
     mentor: {
-        type: Object,
-        ref: 'Mentor',
+        type: String,
         default: null
     },
     manager: {
-        type: Object,
-        ref: 'Manager',
+        type: String,
         default: null
     },
     creation_date: {

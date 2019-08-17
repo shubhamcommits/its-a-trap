@@ -22,13 +22,15 @@ const SHG_Schema = new Schema({
         default: null
     },
     mentor: {
-        type: Object,
-        ref: 'Mentor',
+        type: String,
         required: true
     },
+    approved: {
+        type: Boolean,
+        default: false
+    },
     manager: {
-        type: Object,
-        ref: 'Manager',
+        type: String,
         required: true
     },
     mentees: [{
