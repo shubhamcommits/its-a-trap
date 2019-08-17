@@ -90,5 +90,22 @@
 
 
 
+    <ul class="nav" role="navigation" *ngIf="current_user=='mentor'">
+      <li class="active">
+        <a [routerLink]="['/mentor/apply-shg']" routerLinkActive="router-link-active" *ngIf="!hasCreatedSHG">Apply for SHG</a>
+      </li>
+      <li class="active">
+          <a [routerLink]="['/mentor/my-shg']" routerLinkActive="router-link-active" *ngIf="hasCreatedSHG">My SHG</a>
+      </li>
+      <li class="active">
+          <a [routerLink]="['/mentor/lms']" routerLinkActive="router-link-active" >LMS</a>
+      </li>
+      <li class="active">
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active" (click)=logOut()>Log Out</a>
+      </li>
+    </ul>
+
+
+
     
   </nav>

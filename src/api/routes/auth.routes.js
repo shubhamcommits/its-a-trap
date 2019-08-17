@@ -19,6 +19,7 @@ router.get('/mentor/get-all-mentors',mentor.get_all_mentors);
 router.post('/mentor/get-mentor',mentor.get_mentor);
 router.post('/mentor/add-mentor',mentor.add_mentor);
 router.post('/mentor/add-manager',mentor.add_manager);
+router.post('/mentor/apply-shg',mentor.apply_shg);
 router.post('/mentor/add-shg',mentor.add_shg);
 router.post('/mentor/add-mentee',mentor.add_mentee);
 

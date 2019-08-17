@@ -39,6 +39,9 @@ import { LoginJoinShgComponent } from './login/login-join-shg/login-join-shg.com
 import { LoginMyShgComponent } from './login/login-my-shg/login-my-shg.component';
 import { LoginFundShgComponent } from './login/login-fund-shg/login-fund-shg.component';
 import { LoginFundComponent } from './login/login-fund/login-fund.component';
+import { MentorApplyShgComponent } from './mentor/mentor-apply-shg/mentor-apply-shg.component';
+import { MentorMyShgComponent } from './mentor/mentor-my-shg/mentor-my-shg.component';
+import { MentorLmsComponent } from './mentor/mentor-lms/mentor-lms.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -96,7 +99,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     LoginJoinShgComponent,
     LoginMyShgComponent,
     LoginFundShgComponent,
-    LoginFundComponent
+    LoginFundComponent,
+    MentorApplyShgComponent,
+    MentorMyShgComponent,
+    MentorLmsComponent
   ],
   imports: [
     BrowserModule,

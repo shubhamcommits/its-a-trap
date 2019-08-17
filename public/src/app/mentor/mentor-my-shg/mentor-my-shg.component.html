@@ -1,0 +1,11 @@
+<div *ngIF="!SHGaccepted">
+    <h2>SHG Not Accepted By The Manager Yet!</h2>
+</div>
+
+<div *ngIF="SHGaccepted">
+    <h3>SHG : {{shg.name}}</h3>
+    <p>About : {{shg.about}}</p>
+    <span>Address : {{shg.address}}</span>
+    <span>Country : {{shg.country}}</span>
+    <span>Amount : {{shg.amount}}</span>
+</div>

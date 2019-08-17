@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
 
   current_user: string;
   partOfSHG: boolean;
+  hasCreatedSHG: boolean;
   
   constructor(private authService: AuthService) {
     this.authService.loggedUser.subscribe((value)=>{
@@ -17,6 +18,9 @@ export class NavbarComponent implements OnInit {
     });
     this.authService.partOfSHG.subscribe((value)=>{
       this.partOfSHG = value
+    });
+    this.authService.hasCreatedSHG.subscribe((value)=>{
+      this.hasCreatedSHG = value
     });
   }
 

@@ -125,6 +125,31 @@ const add_manager = async (req, res, next) => {
     }
 };
 
+const apply_shg = async (req, res, next) => {
+  try {
+    const mentor_id = req.body.mentor_id;
+
+    const body = {
+      has_applied: true
+    }
+
+    const mentor = await Mentor.findByIdAndUpdate({
+      _id: mentor_id
+    }, {
+      $set: body
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'Mentor Profile updated!',
+      mentor
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
 const add_shg = async (req, res, next) => {
     try {
       const mentor_id = req.body.mentor_id;
@@ -188,6 +213,7 @@ module.exports = {
   get_mentor,
   add_mentor,
   add_manager,
+  apply_shg,
   add_shg,
   add_mentee
 };

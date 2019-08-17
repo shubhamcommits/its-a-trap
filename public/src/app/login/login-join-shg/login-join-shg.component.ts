@@ -18,5 +18,7 @@ export class LoginJoinShgComponent implements OnInit {
   // CALL /data/user/join-shg USING shg_id ID AND user_id ID
   // CALL /data/mentor/add_mentee USING mentor_id ID FROM shg DATA and user_id ID
   // CALL /data/shg/add_mentee USING shg_id ID AND user_id ID
+  // CALL /data/shg/add_logs USING log="Date.now : {{UserName}} joined the group" AS POST REQUEST
+  // SET THE partOfSSH pvariable AS true AFTER THIS IN THE AUTH-SERVICE
 
 }

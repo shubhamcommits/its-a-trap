@@ -51,7 +51,7 @@ const SHG_Schema = new Schema({
     }],
     logs: [{
         type: String,
-        default: ["SHG create at "+Date.now]
+        default: [Date.now+" : SHG create"]
     }],
     amount: {
         type: Number,

@@ -19,6 +19,6 @@ export class ManagerPendingShgsComponent implements OnInit {
 
   // CALL API /data/manager/approve_pending_shg THAT ACCEPTS MANAGER ID AND SHG ID
   // CALL API /data/mentor/add_shg THAT ACCEPTS SHG ID AND MENTOR ID(SOTRED AS mentor_id IN SHG DATA)
-  // CALL API /data/shg/add_log THAT ACCEPTS SHG ID AND STRING "SHG accepted by manager at Date.now"
+  // CALL API /data/shg/add_log THAT ACCEPTS SHG ID AND STRING log="Date.now : SHG was accepted by the Manager"
 
 }
