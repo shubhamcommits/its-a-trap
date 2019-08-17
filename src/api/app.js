@@ -61,7 +61,6 @@ app.all('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../../public/dist/client/index.html'));
 });
 
-app.use('/api/auth', apiRoutes, cors(corsOptions));
 app.use('/api/data', apiRoutes, cors(corsOptions));
 
 

@@ -13,6 +13,9 @@ const SHG_Schema = new Schema({
         type: String,
         required: true
     },
+    about: {
+        type: String
+    },
     address: {
         type: String,
         default: null

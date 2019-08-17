@@ -31,6 +31,7 @@ import { ManagerLoginComponent } from './manager/manager-login/manager-login.com
 import { AuthService } from 'src/shared/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-dashboard.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -80,7 +81,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MentorSignupComponent,
     ManagerSignupComponent,
     ManagerLoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ManagerDashboardComponent
   ],
   imports: [
     BrowserModule,

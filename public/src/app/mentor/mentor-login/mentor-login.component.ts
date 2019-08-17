@@ -16,7 +16,7 @@ export class MentorLoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginManager(){
+  loginMentor(){
     const _loginData = {
       email: this.email,
       password: this.password

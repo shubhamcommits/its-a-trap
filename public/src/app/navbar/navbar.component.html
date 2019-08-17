@@ -2,7 +2,7 @@
     <span class="nav-button">
         	&#9776;
         </span>
-    <ul class="nav" role="navigation">
+    <ul class="nav" role="navigation" *ngIf="current_user=='home'">
       <li class="active">
         <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
       </li>
@@ -41,4 +41,29 @@
         <a href="#">contact</a>
       </li>
     </ul>
+
+
+
+    <ul class="nav" role="navigation" *ngIf="current_user=='manager'">
+      <li class="active">
+        <a [routerLink]="['/manager/mentors']" routerLinkActive="router-link-active" >Mentors</a>
+      </li>
+      <li>
+        <a [routerLink]="['/manager/pending']" routerLinkActive="router-link-active" >Pending</a>
+        <ul class="nav__sub">
+          <li>
+            <a [routerLink]="['/manager/pending/mentors']" routerLinkActive="router-link-active" >Mentors</a>
+          </li>
+          <li>
+            <a [routerLink]="['/manager/pending/shg']" routerLinkActive="router-link-active" >SHGs</a>
+          </li>
+        </ul>
+      </li>
+      <li class="active">
+        <a [routerLink]="['/home']" routerLinkActive="router-link-active" (click)="logOut()">Log Out</a>
+      </li>
+    </ul>
+
+
+    
   </nav>
