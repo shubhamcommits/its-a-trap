@@ -23,6 +23,7 @@ export class ManagerSignupComponent implements OnInit {
   address: any;
   country: any;
   phone_number: any;
+  about: any;
 
   async ngOnInit() {
     this.ngxService.start(); // start foreground loading with 'default' id
@@ -69,7 +70,8 @@ export class ManagerSignupComponent implements OnInit {
       sex: this.sex,
       address: this.address,
       country: this.country,
-      phone_number: this.phone_number
+      phone_number: this.phone_number,
+      about: this.about
     }
     this.authService.signupManager(_signupData)
     .subscribe((res)=>{

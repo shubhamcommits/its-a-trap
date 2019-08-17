@@ -20,6 +20,7 @@ export class MentorSignupComponent implements OnInit {
   address: any;
   country: any;
   phone_number: any;
+  about: any;
 
   ngOnInit() {
     this.ngxService.start(); // start foreground loading with 'default' id
@@ -41,8 +42,12 @@ export class MentorSignupComponent implements OnInit {
       sex: this.sex,
       address: this.address,
       country: this.country,
-      phone_number: this.phone_number
+      phone_number: this.phone_number,
+      about: this.about
     }
+
+    console.log(_signupData);
+
     this.authService.signupMentor(_signupData)
     .subscribe((res)=>{
       console.log('Manager signed up', res);

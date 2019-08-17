@@ -78,7 +78,7 @@ nav {
     // display submenu
     &:hover > .nav__sub {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
     }
   }
 }
