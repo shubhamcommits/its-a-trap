@@ -10,6 +10,8 @@ export class AuthService {
 
   BASE_API_URL= environment.BASE_API_URL;
   loggedUser = new BehaviorSubject<string>("home");
+  partOfSHG = new BehaviorSubject<boolean>(false);
+  data: any;
 
   constructor(private _http: HttpClient) {
     
@@ -29,7 +31,13 @@ export class AuthService {
 
   loginUser(_loginData: any){
     this.loggedUser.next("user");
-    return this._http.post(this.BASE_API_URL + `/data/login-user`, _loginData);
+    this.data = this._http.post(this.BASE_API_URL + `/data/login-user`, _loginData);
+    
+    if(!this.data){
+      this.partOfSHG.next(true);
+    }
+
+    return this.data;
   }
 
   loginMentor(_loginData: any){

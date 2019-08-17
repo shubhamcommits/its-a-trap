@@ -9,10 +9,14 @@ import { AuthService } from '../../shared/auth.service';
 export class NavbarComponent implements OnInit {
 
   current_user: string;
+  partOfSHG: boolean;
   
   constructor(private authService: AuthService) {
     this.authService.loggedUser.subscribe((value)=>{
       this.current_user = value
+    });
+    this.authService.partOfSHG.subscribe((value)=>{
+      this.partOfSHG = value
     });
   }
 
