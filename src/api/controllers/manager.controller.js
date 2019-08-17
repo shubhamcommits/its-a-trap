@@ -97,7 +97,7 @@ const add_manager = async (req, res, next) => {
   }
 };
 
-const add_mentor = async (req, res, next) => {
+const add_pending_mentor = async (req, res, next) => {
     try {
       const manager_id = req.body.manager_id;
       const mentor_id = req.body.mentor_id;
@@ -123,6 +123,84 @@ const add_mentor = async (req, res, next) => {
     }
 };
 
+const add_pending_shg = async (req, res, next) => {
+  try {
+    const manager_id = req.body.manager_id;
+    const shg_id = req.body.shg_id;
+
+    const body = {
+      pending_shg: shg_id
+    }
+
+    const manager = await Manager.findByIdAndUpdate({
+      _id: manager_id
+    }, {
+      $push: body
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'Manager Profile updated!',
+      manager
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+const approve_pending_mentor = async (req, res, next) => {
+  try {
+    const manager_id = req.body.manager_id;
+    const mentor_id = req.body.mentor_id;
+
+    const body = {
+      pending_mentors: mentor_id
+    }
+
+    const manager = await Manager.findByIdAndUpdate({
+      _id: manager_id
+    }, {
+      $pullAll: body
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'Manager Profile updated!',
+      manager
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+const approve_pending_shg = async (req, res, next) => {
+  try {
+    const manager_id = req.body.manager_id;
+    const shg_id = req.body.shg_id;
+
+    const body = {
+      pending_shg: shg_id
+    }
+
+    const manager = await Manager.findByIdAndUpdate({
+      _id: manager_id
+    }, {
+      $pullAll: body
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'Manager Profile updated!',
+      manager
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
 
 /*  =============
  *  -- EXPORTS --
@@ -133,5 +211,8 @@ module.exports = {
   get_all_managers,
   get_manager,
   add_manager,
-  add_mentor
+  add_pending_mentor,
+  add_pending_shg,
+  approve_pending_mentor,
+  approve_pending_shg
 };

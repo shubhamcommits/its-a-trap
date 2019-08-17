@@ -1,6 +1,6 @@
 <div class="row" style="margin-top:40px; padding:20px;">
     <div class="col-lg-12" style="text-align:center;">
-      <h1 style="font-weight:inherit; font-size: 55px;">Login to your Account</h1>
+      <h1 style="font-weight:inherit; font-size: 55px;">Login to your Manager Account</h1>
       <div class="col-sm-12">
         Brand Line 1
       </div>
@@ -20,12 +20,12 @@
   
           <div class="input-group">
             <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">EMAIL</label>
-            <input class="form-control" [(ngModel)]="email" name="email" id="email" type="email" placeholder="Your Email">
+            <input class="form-control" name="email" id="email" type="email" placeholder="Your Email">
   
           </div>
           <div class="input-group">
             <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">PASSWORD</label>
-            <input class="form-control" [(ngModel)]="password" name="password" id="password" type="password"
+            <input class="form-control" name="password" id="password" type="password"
               placeholder="Your Password">
   
           </div>
@@ -34,7 +34,7 @@
   
           </div>
           <div class="input-group">
-            <button class="btn btn-success btn-lg form-control" style="background-color: #24662A" (click)="loginUser()">LOGIN</button>
+            <button class="btn btn-success btn-lg form-control" style="background-color: #24662A" (click)="login()">LOGIN</button>
   
           </div>
   

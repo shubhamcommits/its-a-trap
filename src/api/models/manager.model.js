@@ -45,7 +45,15 @@ const Manager_Schema = new Schema({
         type: Number,
         default: 0
     },
+    pending_mentors: [{
+        type: String,
+        default: []
+    }],
     mentors: [{
+        type: String,
+        default: []
+    }],
+    pending_shg: [{
         type: String,
         default: []
     }],

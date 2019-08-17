@@ -65,7 +65,8 @@ const add_mentor = async (req, res, next) => {
                 sex: req.body.sex,
                 address: req.body.address,
                 country: req.body.country,
-                phone_number: req.body.phone_number
+                phone_number: req.body.phone_number,
+                about: req.body.about
               });
 
               mentor_data.save()
@@ -103,7 +104,8 @@ const add_manager = async (req, res, next) => {
       const manager_id = req.body.manager_id;
 
       const body = {
-        manager: manager_id
+        manager: manager_id,
+        has_manager: true
       }
 
       const mentor = await Mentor.findByIdAndUpdate({
@@ -123,7 +125,7 @@ const add_manager = async (req, res, next) => {
     }
 };
 
-const create_shg = async (req, res, next) => {
+const add_shg = async (req, res, next) => {
     try {
       const mentor_id = req.body.mentor_id;
       const shg_id = req.body.shg_id;
@@ -186,6 +188,6 @@ module.exports = {
   get_mentor,
   add_mentor,
   add_manager,
-  create_shg,
+  add_shg,
   add_mentee
 };

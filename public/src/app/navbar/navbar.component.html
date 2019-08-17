@@ -8,17 +8,31 @@
       </li>
       <li>
         <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+        <ul class="nav__sub">
+          <li>
+            <a [routerLink]="['/login']" routerLinkActive="router-link-active" >User</a>
+          </li>
+          <li>
+            <a [routerLink]="['/login-mentor']" routerLinkActive="router-link-active" >Mentor</a>
+          </li>
+          <li>
+            <a [routerLink]="['/login-manager']" routerLinkActive="router-link-active" >Manager</a>
+          </li>
+        </ul>
       </li>
       <li>
         <a [routerLink]="['/signup']" routerLinkActive="router-link-active" >Signup</a>
-        <!-- <ul class="nav__sub">
+        <ul class="nav__sub">
           <li>
-            <a href="#">pizzas</a>
+            <a [routerLink]="['/signup']" routerLinkActive="router-link-active" >User</a>
           </li>
           <li>
-            <a href="#">esfihas</a>
+            <a [routerLink]="['/signup-mentor']" routerLinkActive="router-link-active" >Mentor</a>
           </li>
-        </ul> -->
+          <li>
+            <a [routerLink]="['/signup-manager']" routerLinkActive="router-link-active" >Manager</a>
+          </li>
+        </ul>
       </li>
       <li>
           <a [routerLink]="['/transaction']" routerLinkActive="router-link-active">Transactions</a>

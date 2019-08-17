@@ -11,13 +11,23 @@ import { SettingsComponent } from './blockchain/pages/settings/settings.componen
 import { CreateTransactionComponent } from './blockchain/pages/create-transaction/create-transaction.component';
 import { PendingTransactionsComponent } from './blockchain/pages/pending-transactions/pending-transactions.component';
 import { WalletBalanceComponent } from './blockchain/pages/wallet-balance/wallet-balance.component';
+import { ManagerLoginComponent } from './manager/manager-login/manager-login.component';
+import { ManagerSignupComponent } from './manager/manager-signup/manager-signup.component';
+import { MentorLoginComponent } from './mentor/mentor-login/mentor-login.component';
+import { MentorSignupComponent } from './mentor/mentor-signup/mentor-signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'login-mentor', component: MentorLoginComponent },
+  { path: 'login-manager', component: ManagerLoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignupComponent},
-  { path: 'transaction1', component: BlockchainComponent},
+  // { path: 'transaction1', component: BlockchainComponent},
+  { path: 'signup-mentor', component: MentorSignupComponent},
+  { path: 'signup-manager', component: ManagerSignupComponent},
   { path: 'transaction', component: BlockchainViewerComponent },
   { path: 'settings', component: SettingsComponent},
   { path: 'new/transaction', component: CreateTransactionComponent },

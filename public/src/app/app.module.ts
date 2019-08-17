@@ -22,6 +22,15 @@ import { CreateTransactionComponent } from './blockchain/pages/create-transactio
 import { PendingTransactionsComponent } from './blockchain/pages/pending-transactions/pending-transactions.component';
 import { WalletBalanceComponent } from './blockchain/pages/wallet-balance/wallet-balance.component';
 import { TransactionsTableComponent } from './blockchain/components/transactions-table/transactions-table.component';
+import { MentorComponent } from './mentor/mentor.component';
+import { ManagerComponent } from './manager/manager.component';
+import { MentorLoginComponent } from './mentor/mentor-login/mentor-login.component';
+import { MentorSignupComponent } from './mentor/mentor-signup/mentor-signup.component';
+import { ManagerSignupComponent } from './manager/manager-signup/manager-signup.component';
+import { ManagerLoginComponent } from './manager/manager-login/manager-login.component';
+import { AuthService } from 'src/shared/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -64,16 +73,25 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     TransactionsTableComponent,
     CreateTransactionComponent,
     PendingTransactionsComponent,
-    WalletBalanceComponent
+    WalletBalanceComponent,
+    MentorComponent,
+    ManagerComponent,
+    MentorLoginComponent,
+    MentorSignupComponent,
+    ManagerSignupComponent,
+    ManagerLoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, 
-    BlockchainService],
+    BlockchainService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

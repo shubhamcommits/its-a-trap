@@ -53,7 +53,10 @@ const add_shg = async (req, res, next) => {
         else {
             const shg_data = new SHG({
                 name: req.body.name,
+                about: req.body.about,
                 address: req.body.address,
+                latitude: req.body.latitude,
+                longitude: req.body.longitude,
                 country: req.body.country,
                 mentor: req.body.mentor_id,
                 manager: req.body.manager_id
@@ -112,6 +115,56 @@ const add_mentee = async (req, res, next) => {
     }
 };
 
+const add_logs = async (req, res, next) => {
+  try {
+    const shg_id = req.body.shg_id;
+
+    const body = {
+      logs: req.body.log
+    }
+
+    const shg = await SHG.findByIdAndUpdate({
+      _id: shg_id
+    }, {
+      $push: body
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'SHG Profile updated!',
+      shg
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+const update_amount = async (req, res, next) => {
+  try {
+    const shg_id = req.body.shg_id;
+
+    const body = {
+      amount: req.body.amount
+    }
+
+    const shg = await SHG.findByIdAndUpdate({
+      _id: shg_id
+    }, {
+      $set: body
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'SHG Profile updated!',
+      shg
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
 
 /*  =============
  *  -- EXPORTS --
@@ -122,5 +175,7 @@ module.exports = {
   get_all_shgs,
   get_shg,
   add_shg,
-  add_mentee
+  add_mentee,
+  add_logs,
+  update_amount
 };

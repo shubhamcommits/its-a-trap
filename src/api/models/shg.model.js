@@ -17,6 +17,14 @@ const SHG_Schema = new Schema({
         type: String,
         default: null
     },
+    latitude: {
+        type: Number,
+        default: 0.0
+    },
+    longitude: {
+        type: Number,
+        default: 0.0
+    },
     country: {
         type: String,
         default: null
@@ -38,6 +46,14 @@ const SHG_Schema = new Schema({
         ref: 'User',
         default: []
     }],
+    logs: [{
+        type: String,
+        default: ["SHG create at "+Date.now]
+    }],
+    amount: {
+        type: Number,
+        default: 0.0
+    },
     creation_date: {
         type: Date,
         default: Date.now

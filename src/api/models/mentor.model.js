@@ -45,6 +45,9 @@ const Mentor_Schema = new Schema({
         type: Number,
         default: 0
     },
+    about: {
+        type: String,
+    },
     shg: {
         type: String,
         default: null

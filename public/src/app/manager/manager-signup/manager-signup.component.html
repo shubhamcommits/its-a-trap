@@ -1,6 +1,6 @@
 <div class="row" style="margin-top:40px; padding:20px;">
     <div class="col-lg-12" style="text-align:center;">
-      <h1 style="font-weight:inherit; font-size: 55px;">Create your new User Account</h1>
+      <h1 style="font-weight:inherit; font-size: 55px;">Create your new Manager Account</h1>
       <div class="col-sm-12">
         Brandline 1
       </div>
@@ -25,7 +25,7 @@
   
   
             <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">FIRST NAME</label>
-            <input class="form-control" [(ngModel)]="first_name" name="first_name" id="firstname" type="text"
+            <input class="form-control" name="first_name" id="firstname" type="text"
               placeholder="Your First Name">
   
           </div>
@@ -34,49 +34,49 @@
   
   
                 <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">LAST NAME</label>
-                <input class="form-control" [(ngModel)]="last_name" name="last_name" id="lastname" type="text"
+                <input class="form-control" name="last_name" id="lastname" type="text"
                   placeholder="Your Last Name">
       
               </div>
           <div class="input-group">
             <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">EMAIL</label>
-            <input type="email" class="form-control" [(ngModel)]="email" name="email" id="email_" placeholder="Your Email">
+            <input type="email" class="form-control" name="email" id="email_" placeholder="Your Email">
   
   
           </div>
           <div class="input-group">
                 <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">AGE</label>
-                <input type="number" class="form-control" [(ngModel)]="age" name="age" id="age" placeholder="Your Age">
+                <input type="number" class="form-control" name="age" id="age" placeholder="Your Age">
       
       
               </div>
                         <div class="input-group">
                 <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">SEX</label>
-                <input type="text" class="form-control" [(ngModel)]="sex" name="sex" id="sex" placeholder="Your Sex">
+                <input type="text" class="form-control" name="sex" id="sex" placeholder="Your Sex">
       
       
               </div>
                   <div class="input-group">
                         <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">ADDRESS</label>
-                        <input type="text" class="form-control" [(ngModel)]="address" name="address" id="address" placeholder="Your Address">
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Your Address">
               
               
                       </div>
                       <div class="input-group">
                             <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">COUNTRY</label>
-                            <input type="text" class="form-control" [(ngModel)]="country" name="country" id="country" placeholder="Your Country">
+                            <input type="text" class="form-control" name="country" id="country" placeholder="Your Country">
                   
                   
                           </div>
                           <div class="input-group">
                             <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">CONTACT NUMBER</label>
-                            <input type="number" class="form-control" [(ngModel)]="contact" name="contact" id="contact" placeholder="Your Contact Number">
+                            <input type="number" class="form-control" name="contact" id="contact" placeholder="Your Contact Number">
                   
                   
                           </div>
           <div class="input-group">
             <label class="btn-primary btn-lg form-control" style="background-color: rgb(0, 95, 213)">PASSWORD</label>
-            <input type="password" [(ngModel)]="password" class="form-control" name="password" id="password_"
+            <input type="password" class="form-control" name="password" id="password_"
               placeholder="Your Password">
   
           </div>
@@ -89,7 +89,7 @@
   
           </div>
           <div class="input-group">
-            <button class="btn btn-success btn-lg form-control" type="submit" style="background-color: #24662A" (click)="signupUser()">CREATE
+            <button class="btn btn-success btn-lg form-control" type="submit" style="background-color: #24662A" (click)="register_caregiver()">CREATE
               ACCOUNT</button>
   
           </div>

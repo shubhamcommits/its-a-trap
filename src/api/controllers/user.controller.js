@@ -65,7 +65,8 @@ const add_user = async (req, res, next) => {
                 sex: req.body.sex,
                 address: req.body.address,
                 country: req.body.country,
-                phone_number: req.body.phone_number
+                phone_number: req.body.phone_number,
+                about: req.body.about
               });
 
               user_data.save()
