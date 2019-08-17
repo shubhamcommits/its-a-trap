@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,9 +9,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { BlockchainService } from 'src/shared/blockchain.service';
 
 import { NgxUiLoaderModule, NgxUiLoaderConfig } from  'ngx-ui-loader';
 import { AgricultureComponent } from './agriculture/agriculture.component';
+import { BlockchainComponent } from './blockchain/blockchain.component';
+import { BlockViewComponent } from './blockchain/components/block-view/block-view.component';
+
+import { BlockchainViewerComponent } from './blockchain/pages/blockchain-viewer/blockchain-viewer.component';
+import { SettingsComponent } from './blockchain/pages/settings/settings.component';
+import { CreateTransactionComponent } from './blockchain/pages/create-transaction/create-transaction.component';
+import { PendingTransactionsComponent } from './blockchain/pages/pending-transactions/pending-transactions.component';
+import { WalletBalanceComponent } from './blockchain/pages/wallet-balance/wallet-balance.component';
+import { TransactionsTableComponent } from './blockchain/components/transactions-table/transactions-table.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -45,14 +56,24 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     LoginComponent,
     HomeComponent,
     SignupComponent,
-    AgricultureComponent
+    AgricultureComponent,
+    BlockchainComponent,
+    BlockViewComponent,
+    BlockchainViewerComponent,
+    SettingsComponent,
+    TransactionsTableComponent,
+    CreateTransactionComponent,
+    PendingTransactionsComponent,
+    WalletBalanceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, 
+    BlockchainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
