@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const User_Schema = new Schema({
+const Manager_Schema = new Schema({
     profile_image: {
         type: String,
         default: "user.png"
@@ -31,8 +31,7 @@ const User_Schema = new Schema({
         default: 0
     },
     sex: {
-        type: Object,
-        default: []
+        type: String
     },
     nationality: {
         type: Object,
@@ -50,21 +49,11 @@ const User_Schema = new Schema({
         type: Number,
         default: 0
     },
-    shg: {
-        type: Object,
-        ref: 'SHG',
-        default: null
-    },
-    mentor: {
+    mentors: [{
         type: Object,
         ref: 'Mentor',
-        default: null
-    },
-    manager: {
-        type: Object,
-        ref: 'Manager',
-        default: null
-    },
+        default: []
+    }],
     creation_date: {
         type: Date,
         default: Date.now
@@ -72,6 +61,6 @@ const User_Schema = new Schema({
 }, { strict: false });
 
 
-const User = mongoose.model('User', User_Schema);
+const Manager = mongoose.model('Manager', Manager_Schema);
 
-module.exports = User;
+module.exports = Manager;

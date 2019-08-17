@@ -1,32 +1,31 @@
-const { Caretaker } = require('../models');
+const { User, Mentor, Manager, SHG  } = require('../models');
 const { sendErr } = require('../../utils');
-const { Caregiver } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const login_caretaker = async (req, res, next) => {
+const login_user = async (req, res, next) => {
 
     try {
-        const caretaker = await Caretaker.findOne({ email: req.body.email }).exec();
-        if(!caretaker){
-            return sendErr(res, '', 'Error! Caretaker not found, invalid id or unauthorized request', 404);
+        const user = await User.findOne({ email: req.body.email }).exec();
+        if(!user){
+            return sendErr(res, '', 'Error! User not found, invalid id or unauthorized request', 404);
         }
-        const check_pass = await bcrypt.compare(req.body.password, caretaker.password, (err, result)=>{
+        const check_pass = await bcrypt.compare(req.body.password, user.password, (err, result)=>{
             if(err){
                 return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
             }
             if(result){
                 const token = jwt.sign({
-                    email: caretaker.email,
-                    _id: caretaker._id
+                    email: user.email,
+                    _id: user._id
                 }, process.env.JWT_KEY, 
                 {
                     expiresIn: "30 days"
                 });
                 return res.status(200).json({
-                    message: `Caretaker found!`,
+                    message: `User found!`,
                     token: token,
-                    caretaker: caretaker
+                    user: user
                   })
             }
             return sendErr(res, '', 'Authentication error, please try again!', 404);
@@ -38,32 +37,66 @@ const login_caretaker = async (req, res, next) => {
     }
 };
 
-const login_caregiver = async (req, res, next) => {
+const login_mentor = async (req, res, next) => {
 
     try {
-        const caregiver = await Caregiver.findOne({ email: req.body.email }).exec();
-        if(!caregiver){
-            return sendErr(res, '', 'Error! caregiver not found, invalid id or unauthorized request', 404);
+        const mentor = await Mentor.findOne({ email: req.body.email }).exec();
+        if(!mentor){
+            return sendErr(res, '', 'Error! Mentor not found, invalid id or unauthorized request', 404);
         }
-        const check_pass = await bcrypt.compare(req.body.password, caregiver.password, (err, result)=>{
+        const check_pass = await bcrypt.compare(req.body.password, mentor.password, (err, result)=>{
             if(err){
                 return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
             }
             if(result){
                 const token = jwt.sign({
-                    email: caregiver.email,
-                    _id: caregiver._id
+                    email: mentor.email,
+                    _id: mentor._id
                 }, process.env.JWT_KEY, 
                 {
                     expiresIn: "30 days"
                 });
                 return res.status(200).json({
-                    message: `Caregiver found!`,
+                    message: `Mentor found!`,
                     token: token,
-                    caregiver: caregiver
+                    mentor: mentor
                   })
             }
-            return sendErr(res, '', 'Internal Server error occured!', 404);
+            return sendErr(res, '', 'Authentication error, please try again!', 404);
+        });
+    }
+
+    catch (err) {
+        return sendErr(res, err);
+    }
+};
+
+const login_manager = async (req, res, next) => {
+
+    try {
+        const manager = await Manager.findOne({ email: req.body.email }).exec();
+        if(!manager){
+            return sendErr(res, '', 'Error! Manager not found, invalid id or unauthorized request', 404);
+        }
+        const check_pass = await bcrypt.compare(req.body.password, manager.password, (err, result)=>{
+            if(err){
+                return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
+            }
+            if(result){
+                const token = jwt.sign({
+                    email: manager.email,
+                    _id: manager._id
+                }, process.env.JWT_KEY, 
+                {
+                    expiresIn: "30 days"
+                });
+                return res.status(200).json({
+                    message: `Manager found!`,
+                    token: token,
+                    manager: manager
+                  })
+            }
+            return sendErr(res, '', 'Authentication error, please try again!', 404);
         });
     }
 
@@ -78,7 +111,8 @@ const login_caregiver = async (req, res, next) => {
  */
 
 module.exports = {
-    login_caretaker,
-    login_caregiver
+    login_user,
+    login_mentor,
+    login_manager
 };
 

@@ -12,7 +12,7 @@ var dir = './uploads';
 
 
 // Correct REST naming
-const { testRoutes } = require('./routes');
+const { authRoutes } = require('./routes');
 
 const app = express();
 
@@ -61,7 +61,7 @@ app.all('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../../public/dist/client/index.html'));
 });
 
-app.use('/api/test', testRoutes, cors(corsOptions));
+app.use('/api/auth', authRoutes, cors(corsOptions));
 
 
 // Invalid routes handling middleware

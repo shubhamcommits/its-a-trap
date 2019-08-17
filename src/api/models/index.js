@@ -1,5 +1,11 @@
-const Test = require('./test.model');
+const User = require('./user.model');
+const Mentor = require('./mentor.model');
+const Manager = require('./manager.model');
+const SHG = require('./shg.model');
 
 module.exports = {
-    Test
+    User,
+    Mentor,
+    Manager,
+    SHG
 };

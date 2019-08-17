@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const User_Schema = new Schema({
+const Mentor_Schema = new Schema({
     profile_image: {
         type: String,
         default: "user.png"
@@ -31,7 +31,7 @@ const User_Schema = new Schema({
         default: 0
     },
     sex: {
-        type: Object,
+        type: String,
         default: []
     },
     nationality: {
@@ -55,10 +55,14 @@ const User_Schema = new Schema({
         ref: 'SHG',
         default: null
     },
-    mentor: {
+    mentees: [{
         type: Object,
-        ref: 'Mentor',
-        default: null
+        ref: 'User',
+        default: []
+    }],
+    has_manager: {
+        type: Boolean,
+        default: false
     },
     manager: {
         type: Object,
@@ -72,6 +76,6 @@ const User_Schema = new Schema({
 }, { strict: false });
 
 
-const User = mongoose.model('User', User_Schema);
+const Mentor = mongoose.model('Mentor', Mentor_Schema);
 
-module.exports = User;
+module.exports = Mentor;
