@@ -1,7 +1,7 @@
 
-// @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+  @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
-// @import url(https://fonts.googleapis.com/css?family=Inder|Great+Vibes);
+  @import url(https://fonts.googleapis.com/css?family=Inder|Great+Vibes);
 
 // ---------------------------------------------
 // Variables
@@ -9,7 +9,9 @@
 
 // colors
 $green-tomato: #24662A;
-$blue: rgb(0, 95, 213);
+//$blue: rgb(0, 95, 213);
+//$blue: #28c3d4;
+$blue: #fff;
 $blue-dark: darken($blue, 8%);
 $rotten-tomatoes: darken($blue, 15%);
 $bannerPadding: 40px;
@@ -31,14 +33,14 @@ nav {
   .nav-button {
     display: none;
     padding: 10px;
-    color: #fff;
+    color: black;
     background-color: $blue;
     text-align: center;
     font-size: 1.5em;
     cursor: pointer;
     
     &:hover {
-      color: #eee;
+      color: black;
     }
   }
 }
@@ -59,22 +61,24 @@ nav {
     
     a {
       display: block;  
-      //font-family: "josefin sans";
+      font-family: "josefin sans";
       font-size: 20px;
-      color: #fff;
+      font-weight: bold;
+      color: #28c3d4;
       text-transform: uppercase;
       text-decoration: none;
       padding: 30px 15px;
     }
     // change link color 
     &:hover > a {
-      background: $blue-dark;
-      color: #f7f7f7;
+      //background: $blue-dark;
+      //color: #f7f7f7;
+      color: black; 
     }
     // display submenu
     &:hover > .nav__sub {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
     }
   }
 }
@@ -85,7 +89,7 @@ nav {
   padding: 0;
   margin: 0;
   position: initial;
-  background: $blue-dark;
+  //background: $blue-dark;
   
   > li {
      display: flex;
@@ -97,7 +101,8 @@ nav {
       flex: 1 1 auto;
       
       &:hover {
-        background: $rotten-tomatoes;
+        //background: $rotten-tomatoes;
+        color: black;
       }
     }
   }

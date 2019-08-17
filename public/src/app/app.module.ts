@@ -34,26 +34,26 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
-  "bgsColor": "rgb(0, 95, 213)",
+  "bgsColor": "#28c3d4",
   "bgsOpacity": 0.9,
   "bgsPosition": "center-center",
   "bgsSize": 100,
   "bgsType": "three-bounce",
   "blur": 15,
-  "fgsColor": "#fff",
+  "fgsColor": "black",
   "fgsPosition": "center-center",
   "fgsSize": 60,
   "fgsType": "ball-spin-clockwise-fade-rotating",
   "gap": 24,
   "logoPosition": "center-center",
   "logoSize": 120,
-  "overlayColor": "rgb(0, 95, 213)",
-  "pbColor": "#000",
+  "overlayColor": "#28c3d4",
+  "pbColor": "black",
   "pbDirection": "ltr",
   "pbThickness": 5,
   "hasProgressBar": false,
   "text": "Please Hold on...",
-  "textColor": "#fff",
+  "textColor": "black",
   "textPosition": "center-center",
   //"threshold": 500 // progress bar thickness
 };
