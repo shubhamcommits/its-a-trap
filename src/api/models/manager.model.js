@@ -53,7 +53,7 @@ const Manager_Schema = new Schema({
         type: String,
         default: []
     }],
-    pending_shg: [{
+    pending_shgs: [{
         type: String,
         default: []
     }],

@@ -1,1 +1,11 @@
-<p>manager-dashboard works!</p>
+<ul>
+    <li *ngFor="let mentor_shg of mentors_shgs;">
+        Mentor Name : {{mentor_shg.mentor.first_name}} {{mentor_shg.mentor.last_name}} 
+        SHG Name : {{mentor_shg.shg.name}}
+
+        <!-- LINK TO THE manager-mentor_shg COMPONENT ALONG WITH THE DATA OF mentor AND shg-->
+        <a>
+
+        </a>
+    </li>
+</ul>

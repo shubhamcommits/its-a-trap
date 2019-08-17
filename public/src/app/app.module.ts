@@ -32,6 +32,9 @@ import { AuthService } from 'src/shared/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-dashboard.component';
+import { ManagerMentorShgDetailComponent } from './manager/manager-mentor-shg-detail/manager-mentor-shg-detail.component';
+import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentors/manager-pending-mentors.component';
+import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -82,7 +85,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ManagerSignupComponent,
     ManagerLoginComponent,
     DashboardComponent,
-    ManagerDashboardComponent
+    ManagerDashboardComponent,
+    ManagerMentorShgDetailComponent,
+    ManagerPendingMentorsComponent,
+    ManagerPendingShgsComponent
   ],
   imports: [
     BrowserModule,
