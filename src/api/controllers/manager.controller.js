@@ -1,109 +1,128 @@
-const { User, Mentor, Manager, SHG  } = require('../models');
+const { Manager } = require('../models');
 const { sendErr } = require('../../utils');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { ObjectId } = require('mongodb'); 
 
-const login_user = async (req, res, next) => {
+/*  ======================
+ *  -- MANAGERS CONTROLLERS --
+ *  ======================
+ */
 
-    try {
-        const user = await User.findOne({ email: req.body.email }).exec();
-        if(!user){
-            return sendErr(res, '', 'Error! User not found, invalid id or unauthorized request', 404);
-        }
-        const check_pass = await bcrypt.compare(req.body.password, user.password, (err, result)=>{
-            if(err){
-                return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
-            }
-            if(result){
-                const token = jwt.sign({
-                    email: user.email,
-                    _id: user._id
-                }, process.env.JWT_KEY, 
-                {
-                    expiresIn: "30 days"
-                });
-                return res.status(200).json({
-                    message: `User found!`,
-                    token: token,
-                    user: user
-                  })
-            }
-            return sendErr(res, '', 'Authentication error, please try again!', 404);
-        });
-    }
+// -| Manager main controllers |-
 
-    catch (err) {
-        return sendErr(res, err);
-    }
+const get_all_managers = async (req, res, next) => {
+  try {
+    const manager = await Manager.find()
+      .sort('-created_date')
+      .lean();
+
+    return res.status(200).json({
+      message: 'All managers found!',
+      manager
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
 };
 
-const login_mentor = async (req, res, next) => {
+const get_manager = async (req, res, next) => {
+  try {
+    const manager_id = req.body.manager_id;
 
-    try {
-        const mentor = await Mentor.findOne({ email: req.body.email }).exec();
-        if(!mentor){
-            return sendErr(res, '', 'Error! Mentor not found, invalid id or unauthorized request', 404);
-        }
-        const check_pass = await bcrypt.compare(req.body.password, mentor.password, (err, result)=>{
-            if(err){
-                return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
-            }
-            if(result){
-                const token = jwt.sign({
-                    email: mentor.email,
-                    _id: mentor._id
-                }, process.env.JWT_KEY, 
-                {
-                    expiresIn: "30 days"
-                });
-                return res.status(200).json({
-                    message: `Mentor found!`,
-                    token: token,
-                    mentor: mentor
-                  })
-            }
-            return sendErr(res, '', 'Authentication error, please try again!', 404);
-        });
-    }
+    const manager =  await Manager.findById({
+      _id: manager_id
+    });
 
-    catch (err) {
-        return sendErr(res, err);
-    }
+    return res.status(200).json({
+      message: 'User found!',
+      manager      
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
 };
 
-const login_manager = async (req, res, next) => {
-
-    try {
-        const manager = await Manager.findOne({ email: req.body.email }).exec();
-        if(!manager){
-            return sendErr(res, '', 'Error! Manager not found, invalid id or unauthorized request', 404);
+const add_manager = async (req, res, next) => {
+  try {
+    Manager.find({ email: req.body.email }).exec()
+      .then((manager) => {
+        if (manager.length >= 1) {
+          return sendErr(res, manager, 'Manager Already exist', 401);
         }
-        const check_pass = await bcrypt.compare(req.body.password, manager.password, (err, result)=>{
-            if(err){
-                return sendErr(res, '', 'Error! Incorrect password, please try again', 404);
+        else {
+          bcrypt.hash(req.body.password, 10, (err, hash) => {
+            if (err) {
+              return sendErr(res, err, 'An error ocurred trying to create the password, please choose another password!', 401);
             }
-            if(result){
-                const token = jwt.sign({
+            else {
+              const manager_data = new Manager({
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                password: hash,
+                age: req.body.age,
+                sex: req.body.sex,
+                address: req.body.address,
+                country: req.body.country,
+                phone_number: req.body.phone_number
+              });
+
+              manager_data.save()
+                .then((manager) => {
+                  const token = jwt.sign({
                     email: manager.email,
                     _id: manager._id
                 }, process.env.JWT_KEY, 
                 {
                     expiresIn: "30 days"
                 });
-                return res.status(200).json({
-                    message: `Manager found!`,
-                    token: token,
-                    manager: manager
-                  })
+                  return res.status(200).json({
+                    message: 'Manager Created!',
+                    manager: manager,
+                    Token: token
+                  });
+                })
+                .catch((err) => {
+                  return sendErr(res, err);
+                })
             }
-            return sendErr(res, '', 'Authentication error, please try again!', 404);
-        });
-    }
+          })
+        }
+      })
 
-    catch (err) {
-        return sendErr(res, err);
+  }
+  catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+const add_mentor = async (req, res, next) => {
+    try {
+      const manager_id = req.body.manager_id;
+      const mentor_id = req.body.mentor_id;
+
+      const body = {
+        mentors: mentor_id
+      }
+
+      const manager = await Manager.findByIdAndUpdate({
+        _id: manager_id
+      }, {
+        $push: body
+      }, {
+        new: true
+      });
+  
+      return res.status(200).json({
+        message: 'Manager Profile updated!',
+        manager
+      });
+    } catch (err) {
+      return sendErr(res, err);
     }
 };
+
 
 /*  =============
  *  -- EXPORTS --
@@ -111,8 +130,8 @@ const login_manager = async (req, res, next) => {
  */
 
 module.exports = {
-    login_user,
-    login_mentor,
-    login_manager
+  get_all_managers,
+  get_manager,
+  add_manager,
+  add_mentor
 };
-

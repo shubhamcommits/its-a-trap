@@ -33,10 +33,6 @@ const Manager_Schema = new Schema({
     sex: {
         type: String
     },
-    nationality: {
-        type: Object,
-        default: null
-    },
     address: {
         type: String,
         default: null
@@ -50,8 +46,7 @@ const Manager_Schema = new Schema({
         default: 0
     },
     mentors: [{
-        type: Object,
-        ref: 'Mentor',
+        type: String,
         default: []
     }],
     creation_date: {

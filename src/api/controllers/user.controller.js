@@ -1,5 +1,4 @@
-const { Caregiver } = require('../models');
-const { Caretaker } = require('../models');
+const { User } = require('../models');
 const { sendErr } = require('../../utils');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -12,93 +11,44 @@ const { ObjectId } = require('mongodb');
 
 // -| Caregiver main controllers |-
 
-const get = async (req, res, next) => {
+const get_all_users = async (req, res, next) => {
   try {
-    const caregivers = await Caregiver.find()
+    const user = await User.find()
       .sort('-created_date')
       .lean();
 
     return res.status(200).json({
-      message: 'All caregivers found!',
-      caregivers
-
+      message: 'All users found!',
+      user
     });
   } catch (err) {
     return sendErr(res, err);
   }
 };
 
-const get_caregiver = async (req, res, next) => {
+const get_user = async (req, res, next) => {
   try {
-    const caregiver_id = req.params.caregiver_id;
+    const user_id = req.body.user_id;
 
-    const caregiver =  await Caregiver.findById({
-      _id: caregiver_id
+    const user =  await User.findById({
+      _id: user_id
     });
 
     return res.status(200).json({
-      message: 'Caregiver found!',
-      caregiver
-      
+      message: 'User found!',
+      user      
     });
   } catch (err) {
     return sendErr(res, err);
   }
 };
 
-const get_recommendation = async (req, res, next) =>{
+const add_user = async (req, res, next) => {
   try {
-    const caregiver_id = req.params.caregiver_id;
-
-    const caregiver =  await Caregiver.findById({
-      _id: caregiver_id
-    });
-
-    var recommended_patients = new Array();
-
-    for(var i = 0 ; i < caregiver.looking_to_give.length; i++){
-      const caretaker = await Caretaker.find({
-        "patient.looking_for": { $elemMatch:  caregiver.looking_to_give[i]},
-        "accept_proposals_of._id":{ $nin: [caregiver._id]},
-        "sent_proposals_to._id": { $nin: [caregiver._id] },
-        "connections._id": { $nin: [caregiver._id] }
-      });
-      for(var j = 0; j < caretaker.length; j++){
-        if(caretaker[j] != null)
-        recommended_patients.push(caretaker[j])
-      }
-    }
-
-    function removeDuplicates( arr, prop ) {
-      var obj = {};
-      for ( var i = 0, len = arr.length; i < len; i++ ){
-        if(!obj[arr[i][prop]]) obj[arr[i][prop]] = arr[i];
-      }
-      var newArr = [];
-      for ( var key in obj ) newArr.push(obj[key]);
-      return newArr;
-    }
-
-    var patients = removeDuplicates(recommended_patients, '_id');
-    
-    return res.status(200).json({
-      message: 'All Recommended Patients and Caregiver found!',
-      caregiver,
-      patients
-      
-    });
-  }
-  catch(err){
-    return sendErr(res, err);
-  }
-};
-
-const add = async (req, res, next) => {
-  try {
-    Caregiver.find({ email: req.body.email }).exec()
+    User.find({ email: req.body.email }).exec()
       .then((user) => {
         if (user.length >= 1) {
-          return sendErr(res, user, 'caregiver Already exist', 401);
+          return sendErr(res, user, 'User Already exist', 401);
         }
         else {
           bcrypt.hash(req.body.password, 10, (err, hash) => {
@@ -106,24 +56,30 @@ const add = async (req, res, next) => {
               return sendErr(res, err, 'An error ocurred trying to create the password, please choose another password!', 401);
             }
             else {
-              const caregiver_data = new Caregiver({
+              const user_data = new User({
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
                 email: req.body.email,
-                full_name: req.body.full_name,
-                password: hash
+                password: hash,
+                age: req.body.age,
+                sex: req.body.sex,
+                address: req.body.address,
+                country: req.body.country,
+                phone_number: req.body.phone_number
               });
 
-              caregiver_data.save()
-                .then((caregiver) => {
+              user_data.save()
+                .then((user) => {
                   const token = jwt.sign({
-                    email: caregiver.email,
-                    _id: caregiver._id
+                    email: user.email,
+                    _id: user._id
                 }, process.env.JWT_KEY, 
                 {
                     expiresIn: "30 days"
                 });
                   return res.status(200).json({
-                    message: 'caregiver Created!',
-                    caregiver: caregiver,
+                    message: 'User Created!',
+                    user: user,
                     Token: token
                   });
                 })
@@ -141,146 +97,78 @@ const add = async (req, res, next) => {
   }
 };
 
-const send_proposal = async (req, res, next) => {
+const add_mentor = async (req, res, next) => {
   try {
-    const caregiver_id = req.params.caregiver_id;
-    const body  = req.body;
+    const mentor_id = req.body.mentor_id;
+    const user_id = req.body.user_id;
 
-    delete req.params.caregiver_id;
-
-    const caregiver = await Caregiver.findOneAndUpdate({
-      _id: caregiver_id
-    }, {
-      $addToSet: body
-    }, {
-      new: true
-    });
-
-    const caretaker = await Caretaker.findOneAndUpdate({
-      _id: body.sent_proposals_to[0]._id
-    },{
-      $addToSet: {
-        accept_proposals_of: {
-          _id: caregiver._id
-        }
-      }
-    },{
-      new: true
-    });
-
-    return res.status(200).json({
-      message: 'Proposal sent to caretaker!',
-      caregiver,
-      caretaker
-    });
-  } catch (err) {
-    console.log(err)
-    return sendErr(res, err);
-    
-  }
-};
-
-const match_caregiver = async (req, res, next) => {
-  try {
-    const caregiver_id = req.params.caregiver_id;
-    const body  = req.body;
-
-    delete req.params.caregiver_id;
-
-    const caregiver = await Caregiver.findOneAndUpdate({
-      _id: caregiver_id
-    }, {
-      $addToSet:{
-        connections:{
-        _id: ObjectId(body.connections[0]._id)
-      }},
-      $pull: {
-        accept_proposals_of:{
-          _id: ObjectId(body.connections[0]._id)
-        },
-        sent_proposals_to:{
-          _id: ObjectId(body.connections[0]._id)
-        }
-      }
-    }, {
-      new: true
-    });
-
-    const caretaker = await Caretaker.findOneAndUpdate({
-      _id: body.connections[0]._id
-    },{
-      $addToSet: {
-        connections: {
-          _id: caregiver._id
-        }  
-      },
-      $pull:{  
-        accept_proposals_of:{
-          _id: caregiver_id
-        },
-        sent_proposals_to: {
-          _id: caregiver_id
-        }
-      }
+    const body = {
+      mentor: mentor_id
     }
-       ,{
-      new: true
-    });
 
-    return res.status(200).json({
-      message: 'Caretaker Matched!',
-      caregiver,
-      caretaker
-    });
-  } catch (err) {
-    console.log(err)
-    return sendErr(res, err);
-    
-  }
-};
-
-const edit = async (req, res, next) => {
-  try {
-    const caregiver_id = req.body.caregiver_id;
-    const body  = req.body;
-   // const { f } = req
-
-    delete req.body.caregiver_id;
-
-    const caregiver = await Caregiver.findByIdAndUpdate({
-      _id: caregiver_id
+    const user = await User.findByIdAndUpdate({
+      _id: user_id
     }, {
-      $set: body,
-    //  files: f
+      $set: body
     }, {
       new: true
     });
 
     return res.status(200).json({
-      message: 'caregiver Profile updated!',
-      caregiver
+      message: 'Mentor Profile updated!',
+      user
     });
   } catch (err) {
     return sendErr(res, err);
   }
 };
 
-const updateImage = async (req, res, next) => {
+const add_manager = async (req, res, next) => {
   try {
-    const caregiver_id = req.body.caregiver_id;
-    const { fileName } = req;
+    const manager_id = req.body.manager_id;
+    const user_id = req.body.user_id;
 
-    const caregiver = await Caregiver.findByIdAndUpdate({
-      _id: caregiver_id
+    const body = {
+      manager: manager_id
+    }
+
+    const user = await User.findByIdAndUpdate({
+      _id: user_id
     }, {
-      profile_image: fileName
+      $set: body
     }, {
       new: true
     });
 
     return res.status(200).json({
-      message: 'Caregiver profile picture updated!',
-      caregiver
+      message: 'Mentor Profile updated!',
+      user
+    });
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+const join_shg = async (req, res, next) => {
+  try {
+    const shg_id = req.body.shg_id;
+    const user_id = req.body.user_id;
+
+    const body = {
+      shg: shg_id
+    }
+
+    const user = await User.findByIdAndUpdate({
+      _id: user_id
+    }, {
+      $set: body
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'Mentor Profile updated!',
+      user
     });
   } catch (err) {
     return sendErr(res, err);
@@ -293,12 +181,10 @@ const updateImage = async (req, res, next) => {
  */
 
 module.exports = {
-  get,
-  get_caregiver,
-  get_recommendation,
-  add,
-  send_proposal,
-  match_caregiver,
-  edit,
-  updateImage
+  get_all_users,
+  get_user,
+  add_user,
+  add_mentor,
+  add_manager,
+  join_shg
 };
