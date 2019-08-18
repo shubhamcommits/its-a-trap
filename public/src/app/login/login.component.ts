@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(_loginData)
     .subscribe((res)=>{
       console.log('Logged In', res);
+      localStorage.setItem('User',JSON.stringify(res['user']));
     }, (err)=>{
       console.log('Error fetched', err);
     })

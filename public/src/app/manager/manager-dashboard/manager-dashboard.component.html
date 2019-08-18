@@ -10,9 +10,9 @@
     </li>
 </ul> -->
 
-<div class="container">
+<!-- <div class="container">
         <div class="row">
-                Name: {{ mentor?.first_name }} {{ mentor?.last_name }}
+                Name: {{ manager?.first_name }} {{ mentor?.last_name }}
             </div>
             <div class="row">
                     Total Mentors Count: {{mentor?.mentors.length || 0}}
@@ -23,4 +23,17 @@
         <div class="row">
             Pending SHGs Count: {{mentor?.pending_shgs.length || 0}}
             </div>
+</div> -->
+
+<div class="container">
+    <div class="row" *ngFor="let mentor of mentor_shg">
+        Mentor Name : {{mentor?.mentor?.first_name}} {{mentor?.mentor?.last_name}} 
+        SHG Name : {{mentor?.shg?.name}}
+
+        <!-- LINK TO THE manager-mentor_shg COMPONENT ALONG WITH THE DATA OF mentor AND shg -->
+        <a [routerLink]="['/manager/mentor/shg/detail', mentor.mentor._id]"
+        routerLinkActive="router-link-active">
+            View Details
+        </a>
+    </div>
 </div>

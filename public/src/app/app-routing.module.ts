@@ -20,6 +20,8 @@ import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-d
 import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentors/manager-pending-mentors.component';
 import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
 import { LmsComponent } from './lms/lms.component';
+import { ManagerMentorShgDetailComponent } from './manager/manager-mentor-shg-detail/manager-mentor-shg-detail.component';
+
 
 
 const routes: Routes = [
@@ -40,7 +42,8 @@ const routes: Routes = [
   { path: 'manager/dashboard', component:ManagerDashboardComponent },
   { path: 'manager/dashboard/pending/mentors', component: ManagerPendingMentorsComponent },
   { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent },
-  { path: 'lms', component: LmsComponent }
+  { path: 'lms', component: LmsComponent },
+  { path: 'manager/mentor/shg/detail/:id', component: ManagerMentorShgDetailComponent}
 ];
 
 @NgModule({

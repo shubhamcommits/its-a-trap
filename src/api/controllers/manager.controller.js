@@ -155,7 +155,7 @@ const approve_pending_mentor = async (req, res, next) => {
     const mentor_id = req.body.mentor_id;
 
     const body1 = {
-      pending_mentors: mentor_id
+      pending_mentors: [mentor_id]
     }
 
     const body2 = {
@@ -186,7 +186,7 @@ const approve_pending_shg = async (req, res, next) => {
     const shg_id = req.body.shg_id;
 
     const body = {
-      pending_shg: shg_id
+      pending_shg: [shg_id]
     }
 
     const manager = await Manager.findByIdAndUpdate({

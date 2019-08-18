@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerService } from 'src/shared/manager.service';
+import { MentorService } from 'src/shared/mentor.service';
+import { ShgService } from 'src/shared/shg.service';
 
 @Component({
   selector: 'app-manager-pending-mentors',
@@ -8,22 +10,24 @@ import { ManagerService } from 'src/shared/manager.service';
 })
 export class ManagerPendingMentorsComponent implements OnInit {
 
-  constructor(private managerService: ManagerService) { }
+  constructor(private managerService: ManagerService,
+    private mentorService: MentorService,
+    private shg: ShgService) { }
 
-  mentor: any;
+  manager: any;
   pending_mentors: any = new Array()
 
   ngOnInit() {
-    this.mentor = JSON.parse(localStorage.getItem('Manager'));
-    console.log(this.mentor);
+    this.manager = JSON.parse(localStorage.getItem('Manager'));
+    console.log(this.manager);
     this.getPendingMentors();
   }
 
   getPendingMentors(){
-    if(this.mentor.hasOwnProperty('pending_mentors')){
-      if(this.mentor.pending_mentors.length > 0){
-        for(var i = 0; i < this.mentor.pending_mentors.length; i++){
-          this.managerService.getMentor(this.mentor.pending_mentors[i])
+    if(this.manager.hasOwnProperty('pending_mentors')){
+      if(this.manager.pending_mentors.length > 0){
+        for(var i = 0; i < this.manager.pending_mentors.length; i++){
+          this.mentorService.getMentor(this.manager.pending_mentors[i])
           .subscribe((res)=>{
             console.log('Mentor found', res);
             this.pending_mentors.push(res['mentor']);
@@ -31,6 +35,18 @@ export class ManagerPendingMentorsComponent implements OnInit {
         }
       }
     }
+  }
+
+  acceptMentor(mentor_id){
+    console.log(mentor_id)
+    this.managerService.acceptPendingManager(mentor_id, this.manager._id)
+    .subscribe((res)=>{
+      console.log(res);
+      this.mentorService.addManager(mentor_id, this.manager._id)
+      .subscribe((resp)=>{
+        console.log(resp);
+      });
+    });
   }
 
   // MANAGER DATA HAS ATTRIBUTE pending_mentors WHICH IS ARRAY OF ALL THE PENDING MENTOR'S ID UNDER THIS LOGGED IN MANAGER.

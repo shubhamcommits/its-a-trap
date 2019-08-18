@@ -45,6 +45,8 @@ import { MentorApplyShgComponent } from './mentor/mentor-apply-shg/mentor-apply-
 import { MentorMyShgComponent } from './mentor/mentor-my-shg/mentor-my-shg.component';
 import { MentorLmsComponent } from './mentor/mentor-lms/mentor-lms.component';
 import { LmsComponent } from './lms/lms.component';
+import { ShgService } from 'src/shared/shg.service';
+
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -118,7 +120,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, 
     BlockchainService,
     AuthService,
-    ManagerService],
+    ManagerService,
+    ShgService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

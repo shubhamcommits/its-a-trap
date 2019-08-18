@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ManagerService } from 'src/shared/manager.service';
+import { MentorService } from 'src/shared/mentor.service';
+import { ShgService } from 'src/shared/shg.service';
 
 @Component({
   selector: 'app-login-join-shg',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginJoinShgComponent implements OnInit {
 
-  constructor() { }
+  constructor(private managerService: ManagerService,
+    private shgService: ShgService,
+    private mentorService: MentorService) { }
+
+    shgs;
+    user;
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('User'));
+
+    this.shgs = this.shgService.getAllSHG();
   }
 
   // GET DATA OF ALL THE SHGS FROM /data/shg/get-all-shgs

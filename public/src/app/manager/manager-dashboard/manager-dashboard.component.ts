@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerService } from 'src/shared/manager.service';
+import { MentorService } from 'src/shared/mentor.service';
+import { ShgService } from 'src/shared/shg.service';
+
 
 @Component({
   selector: 'app-manager-dashboard',
@@ -8,15 +11,19 @@ import { ManagerService } from 'src/shared/manager.service';
 })
 export class ManagerDashboardComponent implements OnInit {
 
-  constructor(private managerService: ManagerService) { }
+  constructor(private managerService: ManagerService,
+    private shgService: ShgService,
+    private mentorService: MentorService) { }
 
-  mentor: any;
+  manager: any;
+  mentor_shg: any = new Array();
 
   ngOnInit() {
 
-    this.mentor = JSON.parse(localStorage.getItem('Manager'));
-    console.log(this.mentor);
-
+    this.manager = JSON.parse(localStorage.getItem('Manager'));
+    console.log("MANAGER DATA:-")
+    console.log(this.manager);
+    this.getMentors();
     // MANAGER DATA HAS ATTRIBUTE mentors WHICH IS ARRAY OF ALL THE MENTOR'S ID UNDER THIS LOGGED IN MANAGER.
     // ITERATE OVER ALL THE MENTOR IDS
         // GET DATA OF THE MENTOR USING HIS ID
@@ -34,5 +41,36 @@ export class ManagerDashboardComponent implements OnInit {
 
         */
   }
+
+  getMentors(){
+    if(this.manager.hasOwnProperty('mentors')){
+      if(this.manager.mentors.length > 0){
+        for(var i = 0; i < this.manager.mentors.length; i++){
+          console.log("calling "+this.manager.mentors)
+          this.mentorService.getMentor(this.manager.mentors[i])
+          .subscribe((res)=>{
+            const shg_id = res['mentor']['shg']
+            if(shg_id){
+              this.shgService.getSHG(shg_id)
+              .subscribe((resp)=>{
+                this.mentor_shg.push({
+                  'mentor' : res['mentor'],
+                  'shg' : resp['shg']
+                })
+              })
+            }
+            else{
+              this.mentor_shg.push({
+                'mentor' : res['mentor'],
+                'shg' : null
+              })
+            }
+          })   
+        }
+      }
+    }
+    // this.managerService.getMentor()
+  }
+
 
 }

@@ -1,14 +1,14 @@
-<!-- <ul>
+<ul>
     <li *ngFor="let pending_mentor of pending_mentors">
         <h3>{{pending_mentor.first_name}} {{pending_mentor.last_name}}</h3>
         <span>Email : {{pending_mentor.email}}</span>
         <span>Age : {{pending_mentor.age}}</span>
         <span>Sex : {{pending_mentor.sex}}</span>
         <span>Address : {{pending_mentor.address}}</span>
-        <span>Country : {{mentor_shg.counrty}}</span>
+        <span>Country : {{pending_mentor.country}}</span>
         <span>Phone Number : {{pending_mentor.phone_number}}</span>
         <p>About : {{pending_mentor.about}}</p>
-        <a>ACCEPT</a>
-        <a>REJECT</a>
+        <button (click)="acceptMentor(pending_mentor._id)">ACCEPT</button>
+        <button (click)="rejectMentor(pending_mentor._id)">REJECT</button>
     </li>
-</ul> -->
+</ul>
