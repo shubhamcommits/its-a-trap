@@ -56,6 +56,10 @@ const Mentor_Schema = new Schema({
         type: String,
         default: []
     }],
+    has_applied: {
+        type: Boolean,
+        default: false
+    },
     has_manager: {
         type: Boolean,
         default: false

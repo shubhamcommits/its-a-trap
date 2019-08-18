@@ -37,6 +37,13 @@ import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentor
 import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
 import { ManagerService } from 'src/shared/manager.service';
 
+import { LoginJoinShgComponent } from './login/login-join-shg/login-join-shg.component';
+import { LoginMyShgComponent } from './login/login-my-shg/login-my-shg.component';
+import { LoginFundShgComponent } from './login/login-fund-shg/login-fund-shg.component';
+import { LoginFundComponent } from './login/login-fund/login-fund.component';
+import { MentorApplyShgComponent } from './mentor/mentor-apply-shg/mentor-apply-shg.component';
+import { MentorMyShgComponent } from './mentor/mentor-my-shg/mentor-my-shg.component';
+import { MentorLmsComponent } from './mentor/mentor-lms/mentor-lms.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -90,7 +97,14 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ManagerDashboardComponent,
     ManagerMentorShgDetailComponent,
     ManagerPendingMentorsComponent,
-    ManagerPendingShgsComponent
+    ManagerPendingShgsComponent,
+    LoginJoinShgComponent,
+    LoginMyShgComponent,
+    LoginFundShgComponent,
+    LoginFundComponent,
+    MentorApplyShgComponent,
+    MentorMyShgComponent,
+    MentorLmsComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,9 @@ export class AuthService {
 
   BASE_API_URL= environment.BASE_API_URL;
   loggedUser = new BehaviorSubject<string>("home");
+  partOfSHG = new BehaviorSubject<boolean>(false);
+  hasCreatedSHG = new BehaviorSubject<boolean>(false);
+  data: any;
 
   constructor(private _http: HttpClient) {
     
@@ -32,9 +35,28 @@ export class AuthService {
     return this._http.post(this.BASE_API_URL + `/data/login-user`, _loginData);
   }
 
+  // loginMentor(_loginData: any){
+  //   // this.loggedUser.next("mentor");
+  //   return this._http.post(this.BASE_API_URL + `/data/login-mentor`, _loginData);
+  //   this.loggedUser.next("user");
+  //   this.data = this._http.post(this.BASE_API_URL + `/data/login-user`, _loginData);
+    
+  //   if(!this.data.user.shg){
+  //     this.partOfSHG.next(true);
+  //   }
+
+  //   return this.data;
+  // }
+
   loginMentor(_loginData: any){
-    // this.loggedUser.next("mentor");
-    return this._http.post(this.BASE_API_URL + `/data/login-mentor`, _loginData);
+    //this.loggedUser.next("mentor");
+    this.data = this._http.post(this.BASE_API_URL + `/data/login-mentor`, _loginData);
+    
+    if(this.data.mentor.has_applied){
+      this.hasCreatedSHG.next(true);
+    }
+
+    return this.data;
   }
 
   loginManager(_loginData: any){
