@@ -13,7 +13,7 @@ export class ManagerService {
 
   constructor(private _http: HttpClient) { 
     this.getJSON().subscribe(data => {
-      console.log(data);
+      // console.log(data);
   });
   }
 
@@ -45,6 +45,13 @@ export class ManagerService {
   }
 
   public getJSON(): Observable<any> {
-    return this._http.get('../assets/JSONs/deforestation.json');
+    return this._http.get('../assets/JSONs/crop.json');
+}
+
+public getVegJSON(): Observable<any> {
+  return this._http.get('../assets/JSONs/deforestation.json');
+}
+public getRainfallJSON(): Observable<any> {
+  return this._http.get('../assets/JSONs/rainfall.json');
 }
 }

@@ -11,24 +11,31 @@ export class AgricultureComponent implements OnInit {
 
   constructor(private managerService: ManagerService) { }
 
+  value: any;
   output: any;
-
   state: any;
-  district: any;
-  month: any;
+  crop: any;
 
   ngOnInit() {
   }
 
   predict(){
-    console.log(this.state, this.district, this.month);
-    this.managerService.getJSON()
+    //console.log(this.crop, this.state);
+    this.managerService.getRainfallJSON()
     .subscribe((res)=>{
-      if(res['Haryana']){
-        if(res['Haryana'][`${this.district}`]){
-          console.log(res['Haryana'][`${this.district}`])
-        }
-      }
+      this.value = this.crop;
+      console.log(this.value)
+      this.managerService.getJSON()
+      .subscribe((resp)=>{
+          for(var i in resp){
+            if(this.crop === resp[i]['type'] && resp[i]['rainfall'] < this.value){
+              console.log(resp[i]);
+              // this.managerService.getRainfallJSON()
+              // .subscribe((resp)=>{})
+            }
+          }
+        //console.log(this.value);
+      })
     })
   }
 

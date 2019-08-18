@@ -27,6 +27,7 @@ import { LoginJoinShgComponent } from './login/login-join-shg/login-join-shg.com
 import { LoginMyShgComponent } from './login/login-my-shg/login-my-shg.component';
 import { LoginFundShgComponent } from './login/login-fund-shg/login-fund-shg.component';
 import { LoginFundComponent } from './login/login-fund/login-fund.component';
+import { VegetationComponent } from './vegetation/vegetation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -52,7 +53,8 @@ const routes: Routes = [
   { path: 'user/join-shg', component:LoginJoinShgComponent},
   { path: 'user/my-shg', component:LoginMyShgComponent},
   { path: 'user/fund-shg', component:LoginFundShgComponent},
-  { path: 'user/fund', component:LoginFundComponent}
+  { path: 'user/fund', component:LoginFundComponent},
+  { path: 'manager/dashboard/vegetation', component: VegetationComponent}
 ];
 
 @NgModule({
