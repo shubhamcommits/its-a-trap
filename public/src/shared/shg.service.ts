@@ -19,6 +19,14 @@ export class ShgService {
   }
 
   getAllSHG(){
-    return this._http.get(this.BASE_API_URL + `/data/shg/get-all-shg`);
+    return this._http.get(this.BASE_API_URL + `/data/shg/get-all-shgs`);
+  }
+
+  addMentee(shg_id, user_id){
+    const shg = {
+      shg_id: shg_id,
+      user_id: user_id
+    }
+    return this._http.post(this.BASE_API_URL + `/data/shg/add-mentee`, shg);
   }
 }

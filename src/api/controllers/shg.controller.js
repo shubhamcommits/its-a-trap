@@ -58,8 +58,8 @@ const add_shg = async (req, res, next) => {
                 latitude: req.body.latitude,
                 longitude: req.body.longitude,
                 country: req.body.country,
-                mentor: req.body.mentor_id,
-                manager: req.body.manager_id
+                mentor: req.body.mentor,
+                manager: req.body.manager
               });
 
             shg_data.save()

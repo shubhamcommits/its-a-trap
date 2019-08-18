@@ -26,4 +26,12 @@ export class MentorService {
     }
     return this._http.post(this.BASE_API_URL + `/data/mentor/add-manager`, comb);
   }
+
+  addMentee(mentor_id, user_id){
+    const comb = {
+      mentor_id: mentor_id,
+      user_id: user_id
+    }
+    return this._http.post(this.BASE_API_URL + `/data/mentor/add-mentee`, comb);
+  }
 }

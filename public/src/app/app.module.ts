@@ -46,6 +46,7 @@ import { MentorMyShgComponent } from './mentor/mentor-my-shg/mentor-my-shg.compo
 import { MentorLmsComponent } from './mentor/mentor-lms/mentor-lms.component';
 import { LmsComponent } from './lms/lms.component';
 import { ShgService } from 'src/shared/shg.service';
+import { UserService } from 'src/shared/user.service';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -121,7 +122,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     BlockchainService,
     AuthService,
     ManagerService,
-    ShgService],
+    ShgService,
+  UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
