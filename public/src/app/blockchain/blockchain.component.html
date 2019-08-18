@@ -15,16 +15,16 @@
             <div class="col-md-2">
                 </div>
                 <div class="col-md-10">
-                        <button style="background-color: rgb(0, 95, 213); margin-right: 20px; float: right;" routerLink="/new/transaction/pending" class="btn btn-primary" *ngIf="thereArePendingTransactions()">
+                        <button style="background-color: #28c3d4; margin-right: 20px; float: right;" routerLink="/new/transaction/pending" class="btn" *ngIf="thereArePendingTransactions()">
                             Pending transactions
                             <span class="badge badge-light">{{blockchain.pendingTransactions.length}}</span>
                         </button>
                         &nbsp;
-                        <button style="background-color: rgb(0, 95, 213); margin-right: 0px; float: right;" routerLink="/settings" class="btn btn-primary">
+                        <button  style="background-color: #28c3d4; margin-right: 0px; float: right;" routerLink="/settings" class="btn">
                             Settings
                         </button>
                         &nbsp;
-                        <button style="background-color: rgb(0, 95, 213); float: right; margin-right: 10px;" routerLink="/new/transaction" class="btn btn-primary">
+                        <button style="background-color: #28c3d4; float: right; margin-right: 10px;" routerLink="/new/transaction" class="btn">
                             Create transaction
                         </button>
                     </div>

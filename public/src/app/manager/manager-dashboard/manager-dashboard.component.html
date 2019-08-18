@@ -1,11 +1,26 @@
-<ul>
+<!-- <ul>
     <li *ngFor="let mentor_shg of mentors_shgs;">
         Mentor Name : {{mentor_shg.mentor.first_name}} {{mentor_shg.mentor.last_name}} 
         SHG Name : {{mentor_shg.shg.name}}
 
-        <!-- LINK TO THE manager-mentor_shg COMPONENT ALONG WITH THE DATA OF mentor AND shg-->
+        LINK TO THE manager-mentor_shg COMPONENT ALONG WITH THE DATA OF mentor AND shg
         <a>
 
         </a>
     </li>
-</ul>
+</ul> -->
+
+<div class="container">
+        <div class="row">
+                Name: {{ mentor?.first_name }} {{ mentor?.last_name }}
+            </div>
+            <div class="row">
+                    Total Mentors Count: {{mentor?.mentors.length || 0}}
+                </div>
+    <div class="row">
+        Pending Mentors Count: {{mentor?.pending_mentors.length || 0}}
+        </div>
+        <div class="row">
+            Pending SHGs Count: {{mentor?.pending_shgs.length || 0}}
+            </div>
+</div>

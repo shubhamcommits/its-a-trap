@@ -35,6 +35,8 @@ import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-d
 import { ManagerMentorShgDetailComponent } from './manager/manager-mentor-shg-detail/manager-mentor-shg-detail.component';
 import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentors/manager-pending-mentors.component';
 import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
+import { ManagerService } from 'src/shared/manager.service';
+
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -99,7 +101,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, 
     BlockchainService,
-    AuthService],
+    AuthService,
+    ManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

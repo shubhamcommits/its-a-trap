@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManagerService } from 'src/shared/manager.service';
 
 @Component({
   selector: 'app-manager-pending-shgs',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerPendingShgsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private managerService: ManagerService) { }
+
+  mentor: any;
+  pending_shgs: any = new Array();
 
   ngOnInit() {
+    this.mentor = JSON.parse(localStorage.getItem('Manager'));
+    console.log(this.mentor);
+  }
+
+  getPendingSHG(){
+    if(this.mentor.hasOwnProperty('pending_shgs')){
+      if(this.mentor.pending_shgs.length > 0){
+        for(var i = 0; i < this.mentor.pending_shgs; i++){
+
+        }
+      }
+    }
   }
 
   // MANAGER DATA HAS ATTRIBUTE pending_shgs WHICH IS ARRAY OF ALL THE PENDING SHG'S ID UNDER THIS LOGGED IN MANAGER.

@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import {Location} from '@angular/common';
 import { AuthService } from 'src/shared/auth.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-signup',
@@ -12,7 +13,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class ManagerSignupComponent implements OnInit {
 
   constructor(private _location: Location, private authService: AuthService, 
-    private ngxService: NgxUiLoaderService) { }
+    private ngxService: NgxUiLoaderService, private router: Router) { }
 
   first_name: any;
   last_name:any;
@@ -76,6 +77,10 @@ export class ManagerSignupComponent implements OnInit {
     this.authService.signupManager(_signupData)
     .subscribe((res)=>{
       console.log('Manager signed up', res);
+      this.authService.loggedUser.next("manager");
+      localStorage.setItem('Manager', JSON.stringify(res['manager']));
+      localStorage.setItem('Token', JSON.stringify(res['token']));
+      this.router.navigate(['manager', 'dashboard']);
     }, (err)=>{
       console.log('Error', err);
     })

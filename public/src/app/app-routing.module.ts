@@ -16,6 +16,9 @@ import { ManagerSignupComponent } from './manager/manager-signup/manager-signup.
 import { MentorLoginComponent } from './mentor/mentor-login/mentor-login.component';
 import { MentorSignupComponent } from './mentor/mentor-signup/mentor-signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-dashboard.component';
+import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentors/manager-pending-mentors.component';
+import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
 
 
 const routes: Routes = [
@@ -33,6 +36,9 @@ const routes: Routes = [
   { path: 'new/transaction', component: CreateTransactionComponent },
   { path: 'new/transaction/pending', component: PendingTransactionsComponent },
   { path: 'wallet/:address', component: WalletBalanceComponent },
+  { path: 'manager/dashboard', component:ManagerDashboardComponent },
+  { path: 'manager/dashboard/pending/mentors', component: ManagerPendingMentorsComponent },
+  { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent }
 ];
 
 @NgModule({

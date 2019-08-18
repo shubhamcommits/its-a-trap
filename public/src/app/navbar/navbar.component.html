@@ -53,16 +53,16 @@
 
     <ul class="nav" role="navigation" *ngIf="current_user=='manager'">
       <li class="active">
-        <a [routerLink]="['/manager/mentors']" routerLinkActive="router-link-active" >Mentors</a>
+        <a [routerLink]="['/manager/dashboard']" routerLinkActive="router-link-active" >Mentors</a>
       </li>
       <li>
-        <a [routerLink]="['/manager/pending']" routerLinkActive="router-link-active" >Pending</a>
+        <a >Pending</a>
         <ul class="nav__sub">
           <li>
-            <a [routerLink]="['/manager/pending/mentors']" routerLinkActive="router-link-active" >Mentors</a>
+            <a [routerLink]="['/manager/dashboard/pending/mentors']" routerLinkActive="router-link-active" >Mentors</a>
           </li>
           <li>
-            <a [routerLink]="['/manager/pending/shg']" routerLinkActive="router-link-active" >SHGs</a>
+            <a [routerLink]="['/manager/dashboard/pending/shg']" routerLinkActive="router-link-active" >SHGs</a>
           </li>
         </ul>
       </li>

@@ -28,21 +28,22 @@ export class AuthService {
   }
 
   loginUser(_loginData: any){
-    this.loggedUser.next("user");
+    // this.loggedUser.next("user");
     return this._http.post(this.BASE_API_URL + `/data/login-user`, _loginData);
   }
 
   loginMentor(_loginData: any){
-    this.loggedUser.next("mentor");
+    // this.loggedUser.next("mentor");
     return this._http.post(this.BASE_API_URL + `/data/login-mentor`, _loginData);
   }
 
   loginManager(_loginData: any){
-    this.loggedUser.next("manager");
+    // this.loggedUser.next("manager");
     return this._http.post(this.BASE_API_URL + `/data/login-manager`, _loginData);
   }
 
   logOut() {
     this.loggedUser.next("home");
+    localStorage.clear();
   }
 }

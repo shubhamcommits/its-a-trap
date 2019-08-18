@@ -16,7 +16,7 @@
 		[transactions]="pendingTransactions">
 	</app-transactions-table>
 
-	 <button class="btn btn-primary" *ngIf="pendingTransactions.length > 0 && miningInProgress === false" (click)="minePendingTransactions()">
+	 <button class="btn" style="background-color: #28c3d4" *ngIf="pendingTransactions.length > 0 && miningInProgress === false" (click)="minePendingTransactions()">
      	Start mining
     </button>
 
