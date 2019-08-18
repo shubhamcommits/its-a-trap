@@ -1,1 +1,41 @@
-<p>agriculture works!</p>
+<div class="row">
+Select State    
+
+</div>
+<select [(ngModel)]="state">
+        <option value="Haryana">Haryana</option>
+      </select>
+
+      <div class="row">
+            Select District 
+            
+            </div>
+            <select [(ngModel)]="district">
+                    <option value="Ambala">Ambala</option>
+                    <option value="Bhiwani">Bhiwani</option>
+                    <option value="Faridabad">Faridabad</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                    <option value="Karnal">Karnal</option>
+                  </select>
+
+
+      <div class="row">
+            Select Month 
+            
+            </div>
+            <select [(ngModel)]="month">
+
+                    <option value="Jan">Jan</option>
+                    <option value="Feb">Feb</option>
+                    <option value="Mar">Mar</option>
+                    <option value="Apr">Apr</option>
+                    <option value="May">May</option>
+                    <option value="Jun">Jun</option>
+                    <option value="Jul">Jul</option>
+                    <option value="Aug">Aug</option>
+                    <option value="Sept">Sept</option>
+                    <option value="Oct">Oct</option>
+                    <option value="Nov">Nov</option>
+                    <option value="Dec">Dec</option>
+                  </select>
+                  <button (click)="predict()">Predict Output</button>

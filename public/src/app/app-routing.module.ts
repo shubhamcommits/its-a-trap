@@ -21,7 +21,7 @@ import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentor
 import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
 import { LmsComponent } from './lms/lms.component';
 import { ManagerMentorShgDetailComponent } from './manager/manager-mentor-shg-detail/manager-mentor-shg-detail.component';
-
+import { AgricultureComponent } from './agriculture/agriculture.component';
 
 
 const routes: Routes = [
@@ -43,7 +43,8 @@ const routes: Routes = [
   { path: 'manager/dashboard/pending/mentors', component: ManagerPendingMentorsComponent },
   { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent },
   { path: 'lms', component: LmsComponent },
-  { path: 'manager/mentor/shg/detail/:id', component: ManagerMentorShgDetailComponent}
+  { path: 'manager/mentor/shg/detail/:id', component: ManagerMentorShgDetailComponent},
+  { path: 'manager/dashboard/agriculture', component: AgricultureComponent}
 ];
 
 @NgModule({

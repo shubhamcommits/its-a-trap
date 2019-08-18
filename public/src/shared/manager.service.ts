@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,11 @@ export class ManagerService {
 
   BASE_API_URL = environment.BASE_API_URL;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) { 
+    this.getJSON().subscribe(data => {
+      console.log(data);
+  });
+  }
 
 
   getPendingSHG(shg_id){
@@ -31,4 +36,8 @@ export class ManagerService {
   addPendingSHG(){
 
   }
+
+  public getJSON(): Observable<any> {
+    return this._http.get('../assets/JSONs/deforestation.json');
+}
 }

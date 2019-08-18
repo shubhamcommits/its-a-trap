@@ -1,0 +1,42 @@
+{
+    "rice": {
+        "type": "kharif",
+        "rainfall": 1700
+    },
+    "wheat": {
+        "type": "rabi",
+        "rainfall": 550
+    },
+    "maize": {
+        "type": "kharif",
+        "rainfall": 650
+    },
+    "sugarcane": {
+        "type": "kharif",
+        "rainfall": 2000
+    },
+    "cotton": {
+        "type": "kharif",
+        "rainfall": 1000
+    },
+    "jowar": {
+        "type": "kharif",
+        "rainfall": 700
+    },
+    "grapes": {
+        "type": "rabi",
+        "rainfall": 1700
+    },
+    "chillies": {
+        "type": "rabi",
+        "rainfall": 250
+    },
+    "tea": {
+        "type": "kharif",
+        "rainfall": 2250
+    },
+    "coffee": {
+        "type": "kharif",
+        "rainfall": 2000
+    }
+}
