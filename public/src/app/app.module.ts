@@ -44,6 +44,7 @@ import { LoginFundComponent } from './login/login-fund/login-fund.component';
 import { MentorApplyShgComponent } from './mentor/mentor-apply-shg/mentor-apply-shg.component';
 import { MentorMyShgComponent } from './mentor/mentor-my-shg/mentor-my-shg.component';
 import { MentorLmsComponent } from './mentor/mentor-lms/mentor-lms.component';
+import { LmsComponent } from './lms/lms.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -104,7 +105,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     LoginFundComponent,
     MentorApplyShgComponent,
     MentorMyShgComponent,
-    MentorLmsComponent
+    MentorLmsComponent,
+    LmsComponent
   ],
   imports: [
     BrowserModule,

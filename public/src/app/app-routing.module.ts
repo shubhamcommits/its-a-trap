@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-dashboard.component';
 import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentors/manager-pending-mentors.component';
 import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
+import { LmsComponent } from './lms/lms.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'wallet/:address', component: WalletBalanceComponent },
   { path: 'manager/dashboard', component:ManagerDashboardComponent },
   { path: 'manager/dashboard/pending/mentors', component: ManagerPendingMentorsComponent },
-  { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent }
+  { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent },
+  { path: 'lms', component: LmsComponent }
 ];
 
 @NgModule({
