@@ -18,6 +18,13 @@ export class ManagerService {
   }
 
 
+  getManager(manager_id){
+    const manager = {
+      manager_id: manager_id
+    }
+    return this._http.post(this.BASE_API_URL + `/data/manager/get-manager`, manager);
+  }
+
   getPendingSHG(shg_id){
     const shg = {
       shg_id: shg_id

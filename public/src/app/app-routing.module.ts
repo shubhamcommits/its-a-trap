@@ -23,6 +23,10 @@ import { LmsComponent } from './lms/lms.component';
 import { ManagerMentorShgDetailComponent } from './manager/manager-mentor-shg-detail/manager-mentor-shg-detail.component';
 import { AgricultureComponent } from './agriculture/agriculture.component';
 
+import { LoginJoinShgComponent } from './login/login-join-shg/login-join-shg.component';
+import { LoginMyShgComponent } from './login/login-my-shg/login-my-shg.component';
+import { LoginFundShgComponent } from './login/login-fund-shg/login-fund-shg.component';
+import { LoginFundComponent } from './login/login-fund/login-fund.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -44,7 +48,11 @@ const routes: Routes = [
   { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent },
   { path: 'lms', component: LmsComponent },
   { path: 'manager/mentor/shg/detail/:id', component: ManagerMentorShgDetailComponent},
-  { path: 'manager/dashboard/agriculture', component: AgricultureComponent}
+  { path: 'manager/dashboard/agriculture', component: AgricultureComponent},
+  { path: 'user/join-shg', component:LoginJoinShgComponent},
+  { path: 'user/my-shg', component:LoginMyShgComponent},
+  { path: 'user/fund-shg', component:LoginFundShgComponent},
+  { path: 'user/fund', component:LoginFundComponent}
 ];
 
 @NgModule({

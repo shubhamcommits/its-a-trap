@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ManagerService } from 'src/shared/manager.service';
 import { MentorService } from 'src/shared/mentor.service';
 import { ShgService } from 'src/shared/shg.service';
+import { UserService } from 'src/shared/user.service';
+import { Router } from '@angular/router';
+import {Location} from '@angular/common';
+import {AuthService} from 'src/shared/auth.service';
 
 @Component({
   selector: 'app-login-join-shg',
@@ -12,15 +16,51 @@ export class LoginJoinShgComponent implements OnInit {
 
   constructor(private managerService: ManagerService,
     private shgService: ShgService,
-    private mentorService: MentorService) { }
+    private mentorService: MentorService,
+    private userService: UserService,
+    private authService: AuthService,
+    private _location: Location,
+    private router: Router) { }
 
-    shgs;
-    user;
+  shgs;
+  user;
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('User'));
 
-    this.shgs = this.shgService.getAllSHG();
+    this.shgService.getAllSHG()
+    .subscribe((res)=>{
+      console.log(res['shg']);
+      this.shgs = res['shg'];
+    });
+  }
+
+  joinTheSHG(shg_id){
+    this.userService.joinSHG(shg_id, this.user._id)
+    .subscribe((res)=>{
+      console.log("One"+res);
+      console.log("Here"+shg_id);
+
+      this.shgService.getSHG(shg_id)
+      .subscribe((res2)=>{
+        console.log("Two",res2);
+        const shgData = res2['shg'];
+
+        console.log("ID"+shgData['mentor'])
+        this.mentorService.addMentee(shgData['mentor'], this.user._id)
+        .subscribe((res3)=>{
+          console.log("Three",res3);
+
+          this.shgService.addMentee(shg_id, this.user._id)
+          .subscribe((res4)=>{
+            console.log("Four",res4);
+            this.authService.partOfSHG.next(true);
+            localStorage.setItem('User',JSON.stringify(res['user']));
+            this.router.navigate(['user','my-shg']);
+          });
+        });
+      });
+    });
   }
 
   // GET DATA OF ALL THE SHGS FROM /data/shg/get-all-shgs

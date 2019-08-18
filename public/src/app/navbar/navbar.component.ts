@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     if(localStorage.getItem('Manager')){
       this.current_user = 'manager';
-    } else if(localStorage.getItem('user')){
+    } else if(localStorage.getItem('User')){
       this.current_user = 'user';
     } else if(localStorage.getItem('Mentor')){
       this.current_user = 'mentor';
