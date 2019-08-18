@@ -1,12 +1,12 @@
-<h1>{{manager.first_name}} {{manager.last_name}}</h1>
+<!-- <h1>{{manager.first_name}} {{manager.last_name}}</h1>
 <span>Email : {{manager.email}}</span>
 <span>Age : {{manager.age}}</span>
 <span>Sex : {{manager.sex}}</span>
 <span>Address : {{manager.address}}</span>
 <span>Country : {{manager.counrty}}</span>
-<span>Phone Number : {{manager.phone_number}}</span>
+<span>Phone Number : {{manager.phone_number}}</span> -->
 
-<hr>
+<!-- <hr>
 <hr>
 <hr>
 
@@ -19,10 +19,84 @@
 <span>Phone Number : {{mentor.phone_number}}</span>
 <p>About : {{mentor.about}}</p>
 
-<hr>
-
+<hr> -->
+<!-- 
 <h3>SHG : {{shg.name}}</h3>
 <p>About : {{shg.about}}</p>
 <span>Address : {{shg.address}}</span>
 <span>Country : {{shg.country}}</span>
-<span>Amount : {{shg.amount}}</span>
+<span>Amount : {{shg.amount}}</span> -->
+
+<div class="row">
+<div class="col-sm-6" style="margin-top: 305px;">
+<div class="frame">
+        <h4 style="text-align: center; color:black; font-family: bold; font-size: 30px">Mentor Details</h4>
+    <div class="center">
+      <div class="card">
+        <div class="left">
+          <div class="avatar">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <img src="https://pbs.twimg.com/profile_images/894730722271010816/1g-2p3_m_400x400.jpg" />
+          </div>
+          <div class="info">
+            <span class="big">{{mentor.first_name}} {{mentor.last_name}}</span><span class="small">Email : {{mentor.email}}</span>
+          </div>
+          <!-- <div class="buttons">
+            <button class="flw">follow</button><button class="msg">message</button>
+          </div> -->
+        </div>
+        <div class="right">
+          <div class="stats posts" >
+            <span class="big">51</span><span class="small">Trainings Complete</span>
+          </div>
+          <div class="stats likes">
+            <span class="big">{{mentor.phone_number}}</span><span class="small">Phone Number</span>
+          </div>
+          <div class="stats flwrs">
+            <span class="big">B52/1 </span><span class="small">Address</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <h4>SHG</h4> -->
+<div class="col-sm-6" style="margin-top: 305px;">
+        <div class="frame">
+            <h4 style="text-align: center; color:black; font-family: bold; font-size: 30px">SHG</h4>
+        
+        <div class="center">
+          <div class="card">
+              
+            <div class="left">
+              <div class="avatar">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <img src="https://pbs.twimg.com/profile_images/894730722271010816/1g-2p3_m_400x400.jpg" />
+              </div>
+              <div class="info">
+                <span class="big">{{shg.name}}</span><span class="small">About : {{shg.about}}</span>
+              </div>
+              <!-- <div class="buttons">
+                <button class="flw">follow</button><button class="msg">message</button>
+              </div> -->
+            </div>
+            <div class="right">
+              <div class="stats posts" style="
+              margin-top: 44px;
+          ">
+                <span class="big">6</span><span class="small">Members</span>
+              </div>
+              <div class="stats likes">
+                <span class="big">32</span><span class="small">Projects Undertaken</span>
+              </div>
+              <!-- <div class="stats flwrs">
+                <span class="big">B52/1 </span><span class="small">Address</span>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
