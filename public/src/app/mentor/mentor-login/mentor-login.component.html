@@ -1,6 +1,6 @@
 <div class="row" style="margin-top:40px; padding:20px;">
     <div class="col-lg-12" style="text-align:center;">
-      <h1 style="font-weight:inherit; font-size: 55px;">Login to your Mentor Account</h1>
+      <h1 style="font-weight:inherit; font-size: 55px;">Mentor Login</h1>
       <div class="col-sm-12" style="color: #28c3d4; font-weight: bold">
             Solving Global Climatic Crisis Empowering Women
         </div>
@@ -37,12 +37,9 @@
             <button class="btn btn-lg form-control" style="background-color: #28c3d4" (click)="loginMentor()">LOGIN</button>
   
           </div>
-  
-          <div class="input-group">
-            <button class="btn btn-primary form-control btn-lg" style="background-color: rgb(0, 95, 213)" [routerLink]="['/home']">BACK TO HOME</button>
-          </div>
       </div>
-      <div class="col-md-2">
+      <div *ngIf="notApprovedBox">
+        MANAGER HAS NOT APPROVED YOU YET!
       </div>
     </div>
   </div>

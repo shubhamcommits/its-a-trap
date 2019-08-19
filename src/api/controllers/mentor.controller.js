@@ -66,7 +66,8 @@ const add_mentor = async (req, res, next) => {
                 address: req.body.address,
                 country: req.body.country,
                 phone_number: req.body.phone_number,
-                about: req.body.about
+                about: req.body.about,
+                manager: req.body.manager
               });
 
               mentor_data.save()

@@ -1,24 +1,31 @@
-<div *ngIf="this.mentor && this.shg">
-<h2>{{this.mentor?.first_name}} {{mentor.last_name}}</h2>
-<span>Email : {{mentor.email}}</span>
-<span>Age : {{mentor.age}}</span>
-<span>Sex : {{mentor.sex}}</span>
-<span>Address : {{mentor.address}}</span>
-<span>Country : {{mentor.counrty}}</span>
-<span>Phone Number : {{mentor.phone_number}}</span>
+<h2>{{mentor.first_name}} {{mentor.last_name}}</h2>
+<div>Email : {{mentor.email}}</div>
+<div>Age : {{mentor.age}}</div>
+<div>Sex : {{mentor.sex}}</div>
+<div>Address : {{mentor.address}}</div>
+<div>Country : {{mentor.country}}</div>
+<div>Phone Number : {{mentor.phone_number}}</div>
 <p>About : {{mentor.about}}</p>
 
 <hr>
+<hr>
 
-<h3>SHG : {{shg.name}}</h3>
-<p>About : {{shg.about}}</p>
-<span>Address : {{shg.address}}</span>
-<span>Country : {{shg.country}}</span>
-<span>Amount : {{shg.amount}}</span>
+<h3>SHG : {{shg?.name}}</h3>
+<p>About : {{shg?.about}}</p>
+<div>Address : {{shg?.address}}</div>
+<div>Country : {{shg?.country}}</div>
+<div>Amount : {{shg?.amount}}</div>
+<div>
+        Member IDs :-
+        <ul>
+            <li *ngFor="let mentor_id of shg?.mentees">
+                {{mentor_id}}
+            </li>
+        </ul>
+    </div>
 <h5>Logs :- </h5>
-<ul *ngIf="shg.logs">
-    <li *ngFor="let log of shg.logs">
+<ul *ngIf="shg?.logs">
+    <li *ngFor="let log of shg?.logs">
         {{log}}
     </li>
 </ul>
-</div>

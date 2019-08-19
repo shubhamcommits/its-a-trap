@@ -28,6 +28,11 @@ import { LoginMyShgComponent } from './login/login-my-shg/login-my-shg.component
 import { LoginFundShgComponent } from './login/login-fund-shg/login-fund-shg.component';
 import { LoginFundComponent } from './login/login-fund/login-fund.component';
 
+import { MentorLmsComponent } from './mentor/mentor-lms/mentor-lms.component';
+import { MentorApplyShgComponent } from './mentor/mentor-apply-shg/mentor-apply-shg.component';
+import { MentorMyShgComponent } from './mentor/mentor-my-shg/mentor-my-shg.component';
+
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -52,7 +57,10 @@ const routes: Routes = [
   { path: 'user/join-shg', component:LoginJoinShgComponent},
   { path: 'user/my-shg', component:LoginMyShgComponent},
   { path: 'user/fund-shg', component:LoginFundShgComponent},
-  { path: 'user/fund', component:LoginFundComponent}
+  { path: 'user/fund', component:LoginFundComponent},
+  { path: 'mentor/apply-shg', component:MentorApplyShgComponent},
+  { path: 'mentor/my-shg', component:MentorMyShgComponent},
+  { path: 'mentor/lms', component:MentorLmsComponent}
 ];
 
 @NgModule({

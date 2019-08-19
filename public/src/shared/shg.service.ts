@@ -29,4 +29,8 @@ export class ShgService {
     }
     return this._http.post(this.BASE_API_URL + `/data/shg/add-mentee`, shg);
   }
+
+  addSHG(_shgData){
+    return this._http.post(this.BASE_API_URL + `/data/shg/add-shg`, _shgData);
+  }
 }

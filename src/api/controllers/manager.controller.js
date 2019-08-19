@@ -129,7 +129,7 @@ const add_pending_shg = async (req, res, next) => {
     const shg_id = req.body.shg_id;
 
     const body = {
-      pending_shg: shg_id
+      pending_shgs: shg_id
     }
 
     const manager = await Manager.findByIdAndUpdate({
@@ -186,7 +186,7 @@ const approve_pending_shg = async (req, res, next) => {
     const shg_id = req.body.shg_id;
 
     const body = {
-      pending_shg: [shg_id]
+      pending_shgs: [shg_id]
     }
 
     const manager = await Manager.findByIdAndUpdate({
