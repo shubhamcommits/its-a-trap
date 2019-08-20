@@ -22,16 +22,25 @@ export class LoginJoinShgComponent implements OnInit {
     private _location: Location,
     private router: Router) { }
 
-  shgs;
+  allShgs;
+  shgs: Array<Object>;
   user;
 
   ngOnInit() {
+    this.shgs = [];
     this.user = JSON.parse(localStorage.getItem('User'));
 
     this.shgService.getAllSHG()
     .subscribe((res)=>{
-      console.log(res['shg']);
-      this.shgs = res['shg'];
+      for(var i=0; i<res['shg'].length; i++){
+        this.mentorService.getMentor(res['shg'][i].mentor)
+        .subscribe((resp)=>{
+          if(resp['mentor']['shg']){
+            console.log("This",res['shg'][i]);
+            this.shgs.push(res['shg'][i]);
+          }
+        });
+      }
     });
   }
 
@@ -55,7 +64,7 @@ export class LoginJoinShgComponent implements OnInit {
           .subscribe((res4)=>{
             console.log("Four",res4);
             this.authService.partOfSHG.next(true);
-            localStorage.setItem('User',JSON.stringify(res['user']));
+            localStorage.setItem('User',JSON.stringify(res4['user']));
             this.router.navigate(['user','my-shg']);
           });
         });

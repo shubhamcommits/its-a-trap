@@ -32,16 +32,24 @@ export class ManagerService {
     return this._http.post(this.BASE_API_URL + `/data/shg/get-shg`, shg);
   }
 
-  acceptPendingManager(mentor_id, manager_id){
-    const mentor = {
+  acceptPendingMentor(mentor_id, manager_id){
+    const comb = {
       mentor_id : mentor_id,
       manager_id : manager_id
     }
-    return this._http.post(this.BASE_API_URL + `/data/manager/approve-pending-mentor`, mentor);
+    return this._http.post(this.BASE_API_URL + `/data/manager/approve-pending-mentor`, comb);
   }
 
-  addPendingSHG(){
+  acceptPendingSHG(shg_id, manager_id){
+    const comb = {
+      shg_id : shg_id,
+      manager_id : manager_id
+    }
+    return this._http.post(this.BASE_API_URL + `/data/manager/approve-pending-mentor`, comb);
+  }
 
+  getAllManagers(){
+    return this._http.get(this.BASE_API_URL + `/data/manager/get-all-managers`);
   }
 
   public getJSON(): Observable<any> {
@@ -54,4 +62,22 @@ public getVegJSON(): Observable<any> {
 public getRainfallJSON(): Observable<any> {
   return this._http.get('../assets/JSONs/rainfall.json');
 }
+    return this._http.get('../assets/JSONs/deforestation.json');
+  }
+
+  addPendingSHG(shg_id, manager_id){
+    const comb={
+      shg_id : shg_id,
+      manager_id : manager_id
+    }
+    return this._http.post(this.BASE_API_URL + `/data/manager/add-pending-shg`, comb);
+  }
+
+  addPendingMentor(mentor_id, manager_id){
+    const comb={
+      mentor_id : mentor_id,
+      manager_id : manager_id
+    }
+    return this._http.post(this.BASE_API_URL + `/data/manager/add-pending-mentor`, comb);
+  }
 }

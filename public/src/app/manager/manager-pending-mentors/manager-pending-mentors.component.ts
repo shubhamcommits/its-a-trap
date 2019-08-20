@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ManagerService } from 'src/shared/manager.service';
 import { MentorService } from 'src/shared/mentor.service';
 import { ShgService } from 'src/shared/shg.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-pending-mentors',
@@ -12,7 +13,8 @@ export class ManagerPendingMentorsComponent implements OnInit {
 
   constructor(private managerService: ManagerService,
     private mentorService: MentorService,
-    private shg: ShgService) { }
+    private shg: ShgService,
+    private router: Router) { }
 
   manager: any;
   pending_mentors: any = new Array()
@@ -39,14 +41,23 @@ export class ManagerPendingMentorsComponent implements OnInit {
 
   acceptMentor(mentor_id){
     console.log(mentor_id)
-    this.managerService.acceptPendingManager(mentor_id, this.manager._id)
+    this.managerService.acceptPendingMentor(mentor_id, this.manager._id)
     .subscribe((res)=>{
       console.log(res);
+      localStorage.setItem('Manager', JSON.stringify(res['manager']));
+      this.manager = JSON.parse(localStorage.getItem('Manager'));
+
       this.mentorService.addManager(mentor_id, this.manager._id)
       .subscribe((resp)=>{
         console.log(resp);
+
+        this.router.navigate(['manager','dashboard']);
       });
     });
+  }
+
+  rejectMentor(mentor_id){
+
   }
 
   // MANAGER DATA HAS ATTRIBUTE pending_mentors WHICH IS ARRAY OF ALL THE PENDING MENTOR'S ID UNDER THIS LOGGED IN MANAGER.

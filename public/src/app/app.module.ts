@@ -48,6 +48,7 @@ import { LmsComponent } from './lms/lms.component';
 import { ShgService } from 'src/shared/shg.service';
 import { UserService } from 'src/shared/user.service';
 import { VegetationComponent } from './vegetation/vegetation.component';
+import { MentorService } from 'src/shared/mentor.service';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -70,7 +71,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "pbDirection": "ltr",
   "pbThickness": 5,
   "hasProgressBar": false,
-  "text": "Please Hold on...",
+  "text": "",
   "textColor": "black",
   "textPosition": "center-center",
   //"threshold": 500 // progress bar thickness
@@ -125,7 +126,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AuthService,
     ManagerService,
     ShgService,
-  UserService],
+    UserService,
+    MentorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

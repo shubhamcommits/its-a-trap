@@ -29,6 +29,11 @@ import { LoginFundShgComponent } from './login/login-fund-shg/login-fund-shg.com
 import { LoginFundComponent } from './login/login-fund/login-fund.component';
 import { VegetationComponent } from './vegetation/vegetation.component';
 
+import { MentorLmsComponent } from './mentor/mentor-lms/mentor-lms.component';
+import { MentorApplyShgComponent } from './mentor/mentor-apply-shg/mentor-apply-shg.component';
+import { MentorMyShgComponent } from './mentor/mentor-my-shg/mentor-my-shg.component';
+
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -54,7 +59,10 @@ const routes: Routes = [
   { path: 'user/my-shg', component:LoginMyShgComponent},
   { path: 'user/fund-shg', component:LoginFundShgComponent},
   { path: 'user/fund', component:LoginFundComponent},
-  { path: 'manager/dashboard/vegetation', component: VegetationComponent}
+  { path: 'manager/dashboard/vegetation', component: VegetationComponent},
+  { path: 'mentor/apply-shg', component:MentorApplyShgComponent},
+  { path: 'mentor/my-shg', component:MentorMyShgComponent},
+  { path: 'mentor/lms', component:MentorLmsComponent}
 ];
 
 @NgModule({

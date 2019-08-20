@@ -25,23 +25,27 @@ export class ManagerMentorShgDetailComponent implements OnInit {
   mentor_shg;
 
   async ngOnInit() {
-    await this.mentorService.getMentor(this.mentor_id)
+    this.mentorService.getMentor(this.mentor_id)
     .subscribe((res)=>{
-      const shg_id = res['mentor']['shg']
+      console.log(res);
+      const shg_id = res['mentor']['shg'];
+      this.mentor = res['mentor'];
       if(shg_id){
         this.shgService.getSHG(shg_id)
         .subscribe((resp)=>{
-          this.mentor = res['mentor'];
+          console.log(resp);
           this.shg = resp['shg'];
           console.log("DATA HERE", res[
             'mentor'], resp['shg']);
-        })
+        }, (err)=>{
+          console.log('Error fetched', err);
+        });
       }
       else{
         this.mentor = res['mentor'];
         this.shg = null
       }
-    })
+    });
   }
 
 

@@ -7,3 +7,29 @@
         <span>Amount : {{pending_shg.amount}}</span>
     </li>
 </ul> -->
+
+<ul>
+    <li *ngFor="let pending_shg of pending_shgs">
+        <h3>SHG : {{pending_shg?.name}}</h3>
+        <p>About : {{pending_shg?.about}}</p>
+        <div>Address : {{pending_shg?.address}}</div>
+        <div>Country : {{pending_shg?.country}}</div>
+        <div>Amount : {{pending_shg?.amount}}</div>
+        <div>
+                Member IDs :-
+                <ul>
+                    <li *ngFor="let mentor_id of pending_shg?.mentees">
+                        {{mentor_id}}
+                    </li>
+                </ul>
+            </div>
+        <h5>Logs :- </h5>
+        <ul *ngIf="pending_shg?.logs">
+            <li *ngFor="let log of pending_shg?.logs">
+                {{log}}
+            </li>
+        </ul>
+        <button (click)="acceptSHG(pending_shg._id)">ACCEPT</button>
+        <button (click)="rejectSHG(pending_shg._id)">REJECT</button>
+    </li>
+</ul>
