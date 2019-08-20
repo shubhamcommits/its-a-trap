@@ -53,15 +53,6 @@ export class ManagerService {
   }
 
   public getJSON(): Observable<any> {
-    return this._http.get('../assets/JSONs/crop.json');
-}
-
-public getVegJSON(): Observable<any> {
-  return this._http.get('../assets/JSONs/deforestation.json');
-}
-public getRainfallJSON(): Observable<any> {
-  return this._http.get('../assets/JSONs/rainfall.json');
-}
     return this._http.get('../assets/JSONs/deforestation.json');
   }
 
