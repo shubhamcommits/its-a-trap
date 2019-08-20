@@ -115,7 +115,7 @@ const add_mentee = async (req, res, next) => {
     }
 };
 
-const add_logs = async (req, res, next) => {
+const add_log = async (req, res, next) => {
   try {
     const shg_id = req.body.shg_id;
 
@@ -176,6 +176,6 @@ module.exports = {
   get_shg,
   add_shg,
   add_mentee,
-  add_logs,
+  add_log,
   update_amount
 };

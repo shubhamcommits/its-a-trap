@@ -48,22 +48,29 @@ export class MentorApplyShgComponent implements OnInit {
     }
 
     this.shgService.addSHG(_shgData)
-    .subscribe((res)=>{
+    .subscribe((re)=>{
       console.log(_shgData);
-      console.log('SHG created', res);
+      console.log('SHG created', re);
 
-      this.managerService.addPendingSHG(res['shg']['_id'], this.mentor.manager)
-      .subscribe((resp)=>{
-        console.log('SHG added as pending to Manager', resp);
+      const log = Date()+" : SHG created.";
 
-        this.mentorService.applySHG(this.mentor._id)
-        .subscribe((respo)=>{
-          console.log("Mentor had Applied", respo);
-          this.mentor = respo['mentor'];
-          localStorage.setItem('Mentor',JSON.stringify(respo['mentor']));
+      this.shgService.addLog(re['shg']['_id'],log)
+      .subscribe((res)=>{
+        console.log("Log added",res);
 
-          this.authService.hasCreatedSHG.next(true);
-          this.router.navigate(['mentor','my-shg']);
+        this.managerService.addPendingSHG(res['shg']['_id'], this.mentor.manager)
+        .subscribe((resp)=>{
+          console.log('SHG added as pending to Manager', resp);
+
+          this.mentorService.applySHG(this.mentor._id)
+          .subscribe((respo)=>{
+            console.log("Mentor had Applied", respo);
+            this.mentor = respo['mentor'];
+            localStorage.setItem('Mentor',JSON.stringify(respo['mentor']));
+
+            this.authService.hasCreatedSHG.next(true);
+            this.router.navigate(['mentor','my-shg']);
+          });
         });
       });
     }, (err)=>{

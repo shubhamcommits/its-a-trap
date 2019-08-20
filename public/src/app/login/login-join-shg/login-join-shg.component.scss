@@ -2,6 +2,11 @@
 body {
     background: #F1F3FA;
   }
+
+ul {
+  list-style: none;
+  display: flex;
+}
   
   /* Profile container */
 .profile {

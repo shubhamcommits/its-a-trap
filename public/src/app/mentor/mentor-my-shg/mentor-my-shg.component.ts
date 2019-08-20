@@ -34,6 +34,7 @@ export class MentorMyShgComponent implements OnInit {
         
         if(res['mentor']['shg']){
           this.SHGaccepted = true;
+          this.authService.hasCreatedSHG.next(true);
           this.shgService.getSHG(res['mentor']['shg'])
           .subscribe((resp)=>{
             console.log('SHG found',resp);

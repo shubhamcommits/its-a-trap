@@ -1,6 +1,30 @@
 {
-    "Kerala": {
-        "rabi": 377.84637,
-        "kharif": 1294.7738
-    }
+  "Andaman & Nicobar Islands": {
+    "Rabi": 628.171,
+    "Kharif": 1561.1004
+  },
+  "Arunachal Pradesh": {
+    "Rabi": 339.8957,
+    "Kharif": 1159.33792
+  },
+  "Assam & Meghalaya": {
+    "Rabi": 490.87308,
+    "Kharif": 937.95048
+  },
+  "Bihar": {
+    "Rabi": 530.06287,
+    "Kharif": 1368.29344
+  },
+  "Chhattisgarh": {
+    "Rabi": 441.8628,
+    "Kharif": 1238.71376
+  },
+  "Coastal Andhra Pradesh": {
+    "Rabi": 320.53177,
+    "Kharif": 1055.74696
+  },
+  "Coastal Karnataka": {
+    "Rabi": 321.4226,
+    "Kharif": 1018.319140625
+  }
 }

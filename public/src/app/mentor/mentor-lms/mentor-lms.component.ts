@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/shared/auth.service';
 
 @Component({
   selector: 'app-mentor-lms',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MentorLmsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
+
+  mentor;
 
   ngOnInit() {
+    this.mentor = JSON.parse(localStorage.getItem('Mentor'));
+    if(this.mentor.shg){
+      this.authService.hasCreatedSHG.next(true);
+    }
   }
 
 }

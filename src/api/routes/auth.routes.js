@@ -35,7 +35,7 @@ router.get('/shg/get-all-shgs',shg.get_all_shgs);
 router.post('/shg/get-shg',shg.get_shg);
 router.post('/shg/add-shg',shg.add_shg);
 router.post('/shg/add-mentee',shg.add_mentee);
-router.post('/shg/add-logs',shg.add_logs);
+router.post('/shg/add-log',shg.add_log);
 router.post('/shg/update-amount',shg.update_amount);
 
 module.exports = router;

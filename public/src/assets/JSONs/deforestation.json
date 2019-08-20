@@ -1,70 +1,496 @@
 {
-    "Haryana": {
-        "Ambala": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Bhiwani": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Charkhi Dadri": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Faridabad": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Fatehabad": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Gurgaon": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Hisar": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Jhajjar": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Jind": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Kaithal": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Karnal": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Kurukshetra": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Mahendragarh": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Mewat": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Palwal": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Panchkula": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Panipat": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Rewari": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Rohtak": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Sirsa": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Sonipat": {
-            "Jan": "Water Stressed Vegetation"
-        },
-        "Yamunanagar": {
-            "Jan": "Water Stressed Vegetation"
-        }
+  "Haryana": {
+    "AMBALA": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "BHIWANI": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Unhealthy Vegetation",
+	  "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Unhealthy Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "CHARKHI DADRI": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "FARIDABAD": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Unhealthy Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "FATEHABAD": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "GURGAON": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Unhealthy Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "HISAR": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "JHAJJAR": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "JIND": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "KAITHAL": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "KARNAL": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "KURUKSHETRA": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "MAHENDRAGARH": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Unhealthy Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "MEWAT": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "PALWAL": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "PANCHKULA": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "PANIPAT": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "REWARI": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Unhealthy Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "ROHTAK": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "SIRSA": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "SONIPAT": {
+      "Jan": "Healthy Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Unhealthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "YAMUNANAGAR": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Healthy Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Healthy Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
     }
+  },
+  "Andhra Pradesh": {
+    "ANANTHAPUR": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Unhealthy Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Unhealthy Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "CHITTOOR": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "CUDDAPAH": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Unhealthy Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "EAST GODAVARI": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Healthy Vegetation",
+      "Nov": "Healthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "GUNTUR": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Healthy Vegetation",
+      "Nov": "Healthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "KRISHNA": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Healthy Vegetation",
+      "Nov": "Healthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "KURNOOL": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Unhealthy Vegetation",
+      "Jun": "Unhealthy Vegetation",
+      "Jul": "Unhealthy Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "NELLORE": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "PRAKASAM": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Water Stressed Vegetation",
+      "Oct": "Water Stressed Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "SRIKAKULAM": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Healthy Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "VISHAKHAPATNAM": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Healthy Vegetation",
+      "Nov": "Healthy Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "VIZIANAGARAM": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Healthy Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    },
+    "WEST GODAVARI": {
+      "Jan": "Water Stressed Vegetation",
+      "Feb": "Water Stressed Vegetation",
+      "Mar": "Water Stressed Vegetation",
+      "Apr": "Water Stressed Vegetation",
+      "May": "Water Stressed Vegetation",
+      "Jun": "Water Stressed Vegetation",
+      "Jul": "Water Stressed Vegetation",
+      "Aug": "Water Stressed Vegetation",
+      "Sept": "Healthy Vegetation",
+      "Oct": "Healthy Vegetation",
+      "Nov": "Water Stressed Vegetation",
+      "Dec": "Water Stressed Vegetation"
+    }
+  }
 }

@@ -48,9 +48,11 @@ export class ManagerPendingShgsComponent implements OnInit {
       localStorage.setItem('Manager', JSON.stringify(res['manager']));
       this.manager = JSON.parse(localStorage.getItem('Manager'));
 
-      this.shgService.getSHG(shg_id)
+      const log = Date()+" : SHG approved by Manager.";
+
+      this.shgService.addLog(shg_id, log)
       .subscribe((resp)=>{
-        console.log('SHG found',resp);
+        console.log('Log added',resp);
 
         this.mentorService.addSHG(shg_id, resp['shg']['mentor'])
         .subscribe((respo)=>{
@@ -59,7 +61,7 @@ export class ManagerPendingShgsComponent implements OnInit {
           this.router.navigate(['manager','dashboard']);
         });
       });
-      });
+    });
   }
 
   rejectSHG(shg_id){

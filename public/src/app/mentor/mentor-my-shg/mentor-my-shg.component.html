@@ -3,21 +3,26 @@
 </div>
 
 <div *ngIf="SHGaccepted">
-    <h2>Manager : {{manager.first_name}} {{manager.last_name}}</h2>
+    <h2>Manager : {{manager?.first_name}} {{manager?.last_name}}</h2>
     <hr>
     <hr>
-    <h3>SHG : {{shg.name}}</h3>
-    <p>About : {{shg.about}}</p>
-    <div>Address : {{shg.address}}</div>
-    <div>Country : {{shg.country}}</div>
-    <p>Amount : {{shg.amount}}</p>
+    <h3>SHG : {{shg?.name}}</h3>
+    <p>About : {{shg?.about}}</p>
+    <div>Address : {{shg?.address}}</div>
+    <div>Country : {{shg?.country}}</div>
+    <p>Amount : {{shg?.amount}}</p>
     <div>
         Member IDs :-
         <ul>
-            <li *ngFor="let mentor_id of shg.mentees">
-                {{mentor_id}}
+            <li *ngFor="let mentee_id of shg?.mentees">
+                {{mentee_id}}
             </li>
         </ul>
     </div>
-    
+    <h5>Logs :- </h5>
+    <ul *ngIf="shg?.logs">
+        <li *ngFor="let log of shg?.logs">
+            {{log}}
+        </li>
+    </ul>
 </div>

@@ -27,7 +27,7 @@ export class LoginJoinShgComponent implements OnInit {
   user;
 
   ngOnInit(){
-    
+    console.log(Date()+" hello");
   }
 
   ngAfterViewInit() {
@@ -42,9 +42,9 @@ export class LoginJoinShgComponent implements OnInit {
           if(resp['mentor']['shg']){
             console.log("This",res['shg'][i]);
             this.shgs.push(res['shg'][i]);
-          }
+          };
         });
-      }
+      };
     });
   }
 

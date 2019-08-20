@@ -33,4 +33,12 @@ export class ShgService {
   addSHG(_shgData){
     return this._http.post(this.BASE_API_URL + `/data/shg/add-shg`, _shgData);
   }
+
+  addLog(shg_id,log){
+    const logData = {
+      shg_id: shg_id,
+      log : log
+    }
+    return this._http.post(this.BASE_API_URL + `/data/shg/add-log`, logData);
+  }
 }
