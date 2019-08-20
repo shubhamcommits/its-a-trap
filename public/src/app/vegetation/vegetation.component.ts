@@ -12,25 +12,44 @@ export class VegetationComponent implements OnInit {
 
   output: any;
 
-  state: any;
-  district: any;
-  month: any;
+
+  allData;
+  states;
+  selectedState;
+  districts;
+  selectedDistrict;
+  months;
+  selectedMonth;
+  prediction;
 
   ngOnInit() {
+    this.prediction = "";
+    this.months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+    ];
+
+    this.managerService.getVegJSON()
+    .subscribe((res)=>{
+      console.log(res);
+      this.allData = res;
+      this.states = Object.keys(res);
+      console.log(Object.keys(res));
+    });
+  }
+
+  stateSelected(){
+    console.log(this.selectedState);
+    this.districts = Object.keys(this.allData[this.selectedState]);
   }
 
   predict(){
-    console.log(this.state, this.district, this.month);
-    this.managerService.getVegJSON()
-    .subscribe((res)=>{
-      if(res['Haryana']){
-        if(res['Haryana'][`${this.district}`]){
-          // if(res['Haryana'][`${this.district}`][`${this.month}`]){
-            this.output = res['Haryana'][`${this.district}`];
-            console.log(this.output['Jan']);
-          // }
-        }
-      }
-    })
+    if(this.selectedState && this.selectedDistrict && this.selectedMonth){
+      console.log(this.selectedState, this.selectedDistrict, this.selectedMonth);
+
+      this.prediction = this.allData[this.selectedState][this.selectedDistrict][this.selectedMonth];
+
+      console.log(this.prediction);
+    }
   }
 }

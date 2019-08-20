@@ -1,41 +1,49 @@
-<div class="row">
-        Select State    
-        
-        </div>
-        <select [(ngModel)]="state" class="dropdown">
-                <option value="Haryana">Haryana</option>
-              </select>
-        
-              <div class="row">
-                    Select District 
-                    
-                    </div>
-                    <select [(ngModel)]="district">
-                            <option value="Ambala">Ambala</option>
-                            <option value="Bhiwani">Bhiwani</option>
-                            <option value="Faridabad">Faridabad</option>
-                            <option value="Gurgaon">Gurgaon</option>
-                            <option value="Karnal">Karnal</option>
-                          </select>
-        
-        
-              <div class="row">
-                    Select Month 
-                    
-                    </div>
-                    <select [(ngModel)]="month">
-        
-                            <option value="Jan">Jan</option>
-                            <option value="Feb">Feb</option>
-                            <option value="Mar">Mar</option>
-                            <option value="Apr">Apr</option>
-                            <option value="May">May</option>
-                            <option value="Jun">Jun</option>
-                            <option value="Jul">Jul</option>
-                            <option value="Aug">Aug</option>
-                            <option value="Sept">Sept</option>
-                            <option value="Oct">Oct</option>
-                            <option value="Nov">Nov</option>
-                            <option value="Dec">Dec</option>
-                          </select>
-                          <button (click)="predict()">Predict Output</button>
+<div class="row" style="padding:15px;">
+	<div class="col-lg-12" style="text-align:center;">
+		<h1 style="font-weight:inherit; font-size: 55px;">Predict Vegetation</h1>
+		<div class="col-sm-12" style="color: #28c3d4; font-weight: bold">
+			Solving Global Climatic Crisis Empowering Women
+		</div>
+	</div>
+</div>
+	
+	
+<div class="container">
+	<div class="row">
+		
+		<div class="col-md-8" style="margin: auto;">
+	
+			<div class="input-group">
+				<label class="btn-primary btn-lg form-control"
+					style="background-color: rgb(0, 95, 213)">STATE</label>
+				<select [(ngModel)]="selectedState" class="form-control" (change)="stateSelected()">
+					<option *ngFor="let state of states" [ngValue]="state">{{state}}</option>
+				</select>
+			</div>
+
+			<div class="input-group">
+				<label class="btn-primary btn-lg form-control"
+					style="background-color: rgb(0, 95, 213)">DISTRICT</label>
+				<select [(ngModel)]="selectedDistrict" class="form-control">
+					<option *ngFor="let district of districts" [ngValue]="district">{{district}}</option>
+				</select>
+			</div>
+
+			<div class="input-group">
+				<label class="btn-primary btn-lg form-control"
+					style="background-color: rgb(0, 95, 213)">MONTH</label>
+				<select [(ngModel)]="selectedMonth" class="form-control">
+					<option *ngFor="let month of months" [ngValue]="month">{{month}}</option>
+				</select>
+			</div>
+
+			<div class="input-group">
+				<button class="btn btn-lg form-control" type="submit" style="background-color: #28c3d4" (click)="predict()">Predict</button>
+			</div>
+
+			<div class="input-group">
+				<button class="btn btn-lg form-control" style="background-color: white; color: #28c3d4; font-weight: bold">{{ prediction }}</button>
+			</div>
+		</div>
+	</div>
+</div>
