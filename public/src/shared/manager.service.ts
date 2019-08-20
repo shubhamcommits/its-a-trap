@@ -11,63 +11,70 @@ export class ManagerService {
 
   BASE_API_URL = environment.BASE_API_URL;
 
-  constructor(private _http: HttpClient) { 
+  constructor(private _http: HttpClient) {
     this.getJSON().subscribe(data => {
       // console.log(data);
-  });
+    });
   }
 
 
-  getManager(manager_id){
+  getManager(manager_id) {
     const manager = {
       manager_id: manager_id
     }
     return this._http.post(this.BASE_API_URL + `/data/manager/get-manager`, manager);
   }
 
-  getPendingSHG(shg_id){
+  getPendingSHG(shg_id) {
     const shg = {
       shg_id: shg_id
     }
     return this._http.post(this.BASE_API_URL + `/data/shg/get-shg`, shg);
   }
 
-  acceptPendingMentor(mentor_id, manager_id){
+  acceptPendingMentor(mentor_id, manager_id) {
     const comb = {
-      mentor_id : mentor_id,
-      manager_id : manager_id
+      mentor_id: mentor_id,
+      manager_id: manager_id
     }
     return this._http.post(this.BASE_API_URL + `/data/manager/approve-pending-mentor`, comb);
   }
 
-  acceptPendingSHG(shg_id, manager_id){
+  acceptPendingSHG(shg_id, manager_id) {
     const comb = {
-      shg_id : shg_id,
-      manager_id : manager_id
+      shg_id: shg_id,
+      manager_id: manager_id
     }
     return this._http.post(this.BASE_API_URL + `/data/manager/approve-pending-mentor`, comb);
   }
 
-  getAllManagers(){
+  getAllManagers() {
     return this._http.get(this.BASE_API_URL + `/data/manager/get-all-managers`);
   }
 
   public getJSON(): Observable<any> {
-    return this._http.get('../assets/JSONs/deforestation.json');
+    return this._http.get('../assets/JSONs/crop.json');
   }
 
-  addPendingSHG(shg_id, manager_id){
-    const comb={
-      shg_id : shg_id,
-      manager_id : manager_id
+  public getVegJSON(): Observable<any> {
+    return this._http.get('../assets/JSONs/deforestation.json');
+  }
+  public getRainfallJSON(): Observable<any> {
+    return this._http.get('../assets/JSONs/rainfall.json');
+  }
+
+  addPendingSHG(shg_id, manager_id) {
+    const comb = {
+      shg_id: shg_id,
+      manager_id: manager_id
     }
     return this._http.post(this.BASE_API_URL + `/data/manager/add-pending-shg`, comb);
   }
 
-  addPendingMentor(mentor_id, manager_id){
-    const comb={
-      mentor_id : mentor_id,
-      manager_id : manager_id
+  addPendingMentor(mentor_id, manager_id) {
+    const comb = {
+      mentor_id: mentor_id,
+      manager_id: manager_id
     }
     return this._http.post(this.BASE_API_URL + `/data/manager/add-pending-mentor`, comb);
   }

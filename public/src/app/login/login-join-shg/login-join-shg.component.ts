@@ -26,7 +26,11 @@ export class LoginJoinShgComponent implements OnInit {
   shgs: Array<Object>;
   user;
 
-  ngOnInit() {
+  ngOnInit(){
+    
+  }
+
+  ngAfterViewInit() {
     this.shgs = [];
     this.user = JSON.parse(localStorage.getItem('User'));
 
