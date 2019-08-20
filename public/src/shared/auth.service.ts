@@ -52,9 +52,9 @@ export class AuthService {
     //this.loggedUser.next("mentor");
     this.data = this._http.post(this.BASE_API_URL + `/data/login-mentor`, _loginData);
     
-    if(this.data.mentor.has_applied){
-      this.hasCreatedSHG.next(true);
-    }
+    // if(this.data.mentor.has_applied){
+    //   this.hasCreatedSHG.next(true);
+    // }
 
     return this.data;
   }
