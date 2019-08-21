@@ -1,18 +1,41 @@
-<div class="row">
-Select State    
-
+<div class="row" style="padding:15px;">
+	<div class="col-lg-12" style="text-align:center;">
+		<h1 style="font-weight:inherit; font-size: 55px;">Predict Rainfall</h1>
+		<div class="col-sm-12" style="color: #28c3d4; font-weight: bold">
+			Solving Global Climatic Crisis Empowering Women
+		</div>
+	</div>
 </div>
-<select [(ngModel)]="state" class="dropdown">
-        <option value="Kerala">Kerala</option>
-      </select>
+	
+	
+<div class="container">
+	<div class="row">
+		
+		<div class="col-md-8" style="margin: auto;">
+	
+			<div class="input-group">
+				<label class="btn-primary btn-lg form-control"
+					style="background-color: rgb(0, 95, 213)">REGION</label>
+				<select [(ngModel)]="selectedRegion" class="form-control">
+					<option *ngFor="let region of regions" [ngValue]="region">{{region}}</option>
+				</select>
+			</div>
 
-      <div class="row">
-            Select Crop Type 
-            
-            </div>
-            <select [(ngModel)]="crop">
-                    <option value="kharif">Kharif</option>
-                    <option value="rabi">Rabi</option>
-                  </select>
+			<div class="input-group">
+				<label class="btn-primary btn-lg form-control"
+					style="background-color: rgb(0, 95, 213)">MONTH</label>
+				<select [(ngModel)]="selectedMonth" class="form-control">
+					<option *ngFor="let month of months" [ngValue]="month">{{month}}</option>
+				</select>
+			</div>
 
-                  <button (click)="predict()">Predict Output</button>
+			<div class="input-group">
+				<button class="btn btn-lg form-control" type="submit" style="background-color: #28c3d4" (click)="predict()">Predict</button>
+			</div>
+
+			<div class="input-group">
+				<button class="btn btn-lg form-control" style="background-color: white; color: #28c3d4; font-weight: bold">{{ prediction }} mm Rainfall Predicted in 2019</button>
+			</div>
+		</div>
+	</div>
+</div>

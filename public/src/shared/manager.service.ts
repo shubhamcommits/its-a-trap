@@ -60,7 +60,7 @@ export class ManagerService {
     return this._http.get('../assets/JSONs/deforestation.json');
   }
   public getRainfallJSON(): Observable<any> {
-    return this._http.get('../assets/JSONs/rainfall.json');
+    return this._http.get('../assets/JSONs/rainfall_region.json');
   }
 
   addPendingSHG(shg_id, manager_id) {
