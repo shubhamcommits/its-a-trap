@@ -48,7 +48,7 @@ export class ManagerPendingShgsComponent implements OnInit {
       localStorage.setItem('Manager', JSON.stringify(res['manager']));
       this.manager = JSON.parse(localStorage.getItem('Manager'));
 
-      const log = Date()+" : SHG approved by Manager.";
+      const log = Date()+" : "+this.manager.first_name+" "+this.manager.last_name+" approved the SHG.";
 
       this.shgService.addLog(shg_id, log)
       .subscribe((resp)=>{

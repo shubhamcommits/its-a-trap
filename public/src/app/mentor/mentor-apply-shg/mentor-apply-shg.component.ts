@@ -52,7 +52,7 @@ export class MentorApplyShgComponent implements OnInit {
       console.log(_shgData);
       console.log('SHG created', re);
 
-      const log = Date()+" : SHG created.";
+      const log = Date()+" : "+this.mentor.first_name+" "+this.mentor.last_name+" created the SHG.";
 
       this.shgService.addLog(re['shg']['_id'],log)
       .subscribe((res)=>{

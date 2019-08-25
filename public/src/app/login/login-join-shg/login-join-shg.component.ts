@@ -6,6 +6,8 @@ import { UserService } from 'src/shared/user.service';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 import {AuthService} from 'src/shared/auth.service';
+import { reject } from 'q';
+import { resolve } from 'url';
 
 @Component({
   selector: 'app-login-join-shg',
@@ -26,25 +28,37 @@ export class LoginJoinShgComponent implements OnInit {
   shgs: Array<Object>;
   user;
 
-  ngOnInit(){
-    console.log(Date()+" hello");
-  }
-
-  ngAfterViewInit() {
+  ngOnInit() {
     this.shgs = [];
     this.user = JSON.parse(localStorage.getItem('User'));
 
     this.shgService.getAllSHG()
     .subscribe((res)=>{
-      for(var i=0; i<res['shg'].length; i++){
-        this.mentorService.getMentor(res['shg'][i].mentor)
-        .subscribe((resp)=>{
-          if(resp['mentor']['shg']){
-            console.log("This",res['shg'][i]);
-            this.shgs.push(res['shg'][i]);
-          };
-        });
-      };
+      this.getValidSHG(res['shg']).then((resp)=>{
+        console.log(resp);
+      });
+    });
+  }
+
+  async getValidSHG(shg_data){
+    for(var i=0; i<shg_data.length; i++){
+      console.log("Checking "+i+"th SHG");
+      await this.checkValidity(shg_data[i]).then((resp)=>{
+        console.log("Checked "+i+"th SHG");
+      });
+    };
+  }
+
+  checkValidity(shg){
+    return new Promise((resolve,reject)=>{
+      this.mentorService.getMentor(shg.mentor)
+      .subscribe((res)=>{
+        if(res['mentor']['shg']){
+          console.log("Including SHG : ",shg);
+          this.shgs.push(shg);
+        };
+      });
+      resolve('Done');
     });
   }
 
@@ -67,9 +81,17 @@ export class LoginJoinShgComponent implements OnInit {
           this.shgService.addMentee(shg_id, this.user._id)
           .subscribe((res4)=>{
             console.log("Four",res4);
-            this.authService.partOfSHG.next(true);
-            localStorage.setItem('User',JSON.stringify(res4['user']));
-            this.router.navigate(['user','my-shg']);
+
+            localStorage.setItem('User',JSON.stringify(res['user']));
+            this.user = JSON.parse(localStorage.getItem('User'));
+            const log = Date()+" : "+this.user.first_name+" "+this.user.last_name+" joined the SHG.";
+            this.shgService.addLog(shg_id, log)
+            .subscribe((res5)=>{
+              console.log("Five",res5);
+
+              this.authService.partOfSHG.next(true);
+              this.router.navigate(['user','my-shg']);
+            });
           });
         });
       });
