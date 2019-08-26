@@ -8,28 +8,63 @@
     </li>
 </ul> -->
 
-<ul>
-    <li *ngFor="let pending_shg of pending_shgs">
-        <h3>SHG : {{pending_shg?.name}}</h3>
-        <p>About : {{pending_shg?.about}}</p>
-        <div>Address : {{pending_shg?.address}}</div>
-        <div>Country : {{pending_shg?.country}}</div>
-        <div>Amount : {{pending_shg?.amount}}</div>
-        <div>
-                Member IDs :-
-                <ul>
-                    <li *ngFor="let mentor_id of pending_shg?.mentees">
-                        {{mentor_id}}
-                    </li>
-                </ul>
+<div class="container mt-5 pt-3">
+    <div class="row" style="text-align: center; justify-content: center;">
+    <div class="col-md-5" *ngFor="let shg of pending_shgs" style="border: 3px solid; width: 200px; margin: 10px; display: flex; flex-direction: column;">
+
+        <div class="row">
+            <h3 style="width: 100%; padding: 5px; background-color: #28c3d4; border: 1px solid; border-color: white;">{{shg?.name}}</h3>
+        </div>
+
+        <table class="table table-striped" style="width: 100%;" *ngIf="shg">
+            <tbody> 
+                <tr scope="row">
+                    <td>
+                        About
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{shg?.about}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        Address
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{shg?.address}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        Country
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{shg?.country}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+            <div class="row" *ngIf="shg">
+                <h3 style="width: 100%; padding: 5px; background-color: #28c3d4; border: 1px solid; border-color: white;">Logs</h3>
             </div>
-        <h5>Logs :- </h5>
-        <ul *ngIf="pending_shg?.logs">
-            <li *ngFor="let log of pending_shg?.logs">
-                {{log}}
-            </li>
-        </ul>
-        <button (click)="acceptSHG(pending_shg._id)">ACCEPT</button>
-        <button (click)="rejectSHG(pending_shg._id)">REJECT</button>
-    </li>
-</ul>
+    
+            <ul *ngIf="shg?.logs" style="text-align: left;">
+                <li *ngFor="let log of shg?.logs">
+                    {{log}}
+                </li>
+            </ul>
+
+        <div class="row mt-3" style="background-color: #28c3d4; border: 1px solid; border-color: white; margin-top: auto !important; margin-bottom: 0px !important;">
+            <div style="margin: auto; padding: 5px;">
+                <button class="btn btn-primary" (click)="acceptSHG(shg._id)">ACCEPT</button>
+            </div>
+            <div style="margin: auto; padding: 5px;">
+                <button class="btn btn-danger" (click)="rejectSHG(shg._id)">REJECT</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

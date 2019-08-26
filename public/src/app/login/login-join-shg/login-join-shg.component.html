@@ -1,101 +1,100 @@
-<ul style="justify-content: center; display: flex; flex-wrap: wrap;">
-    <li *ngFor="let shg of shgs" style="width: 30%;">
-        
-        
-        
-        <div class="container">
-            <div class="row profile">
-                <div class="col-md-12" style="border: 1px solid black; margin: auto;">
-                    <div class="profile-sidebar">
-                        <!-- SIDEBAR USERPIC -->
-                        <div class="profile-userpic" style="text-align: center">
-                            <img src="https://gravatar.com/avatar/31b64e4876d603ce78e04102c67d6144?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" class="img-responsive" alt="" style="
-                            /* position: absolute; */
-                            margin: auto;
-                        ">
-                        </div>
-                        <!-- END SIDEBAR USERPIC -->
-                        <!-- SIDEBAR USER TITLE -->
-                        <div class="profile-usertitle">
-                            <div class="profile-usertitle-name">
-                                <h3>{{shg.name}}</h3>
+<div class="container mt-3">
+    <ul style="justify-content: center; display: flex; flex-wrap: wrap;">
+        <li *ngFor="let shg of shgs" style="width: 30%;">
+            
+            
+            
+            <div class="container">
+                <div class="row profile">
+                    <div class="col-md-12" style="border: 1px solid black; margin: auto;">
+                        <div class="profile-sidebar">
+                            <!-- SIDEBAR USERPIC -->
+                            <div class="profile-userpic" style="text-align: center">
+                                <img src="https://gravatar.com/avatar/31b64e4876d603ce78e04102c67d6144?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" class="img-responsive" alt="" style="
+                                /* position: absolute; */
+                                margin: auto;
+                            ">
                             </div>
-                            <div class="profile-usertitle-job">
-                                <p>{{shg.about}}</p>
+                            <!-- END SIDEBAR USERPIC -->
+                            <!-- SIDEBAR USER TITLE -->
+                            <div class="profile-usertitle">
+                                <div class="profile-usertitle-name">
+                                    <h3>{{shg.name}}</h3>
+                                </div>
                             </div>
-                        </div>
-                        <!-- END SIDEBAR USER TITLE -->
-                        <!-- SIDEBAR BUTTONS -->
-                        <div class="profile-userbuttons" style="margin-bottom: 10px;">
-                            <button type="button" class="btn btn-success btn-sm" (click)="joinTheSHG(shg._id)">Join</button>
-                            <!-- <button type="button" class="btn btn-success btn-sm">Join</button> -->
-                            <button type="button" class="btn btn-danger btn-sm">Message</button>
-                        </div>
-                        <!-- END SIDEBAR BUTTONS -->
-                        <!-- SIDEBAR MENU -->
-                        <!-- <div class="profile-usermenu"> -->
-                            <!-- <ul class="nav">
-                                <li class="active">
-                                    <a href="#">
-                                    <i class="glyphicon glyphicon-home"></i>
-                                    Overview </a>
-                                </li> -->
-                                <!-- <li>
-                                    <a href="https://codepen.io/jasondavis/pen/jVRwaG?editors=1000">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    Account Settings </a>
-                                </li> -->
-                                <!-- <li>
-                                    <a href="#" target="_blank">
-                                    <i class="glyphicon glyphicon-ok"></i>
-                                    Tasks </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    <i class="glyphicon glyphicon-flag"></i>
-                                    Help </a>
-                                </li> -->
-                            <!-- </ul>
-                        </div> -->
-                        <!-- END MENU -->
-                       
-                   <div class="portlet light bordered">
-                                                        <!-- STAT -->
-                                                        <div class="row list-separated profile-stat">
-                                                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                                                <div class="uppercase profile-stat-title"> 15 </div>
-                                                                <div class="uppercase profile-stat-text"> Members </div>
+                            <!-- END SIDEBAR USER TITLE -->
+                            <!-- SIDEBAR BUTTONS -->
+                            <div class="profile-userbuttons" style="margin-bottom: 10px;">
+                                <button type="button" class="btn btn-success btn-sm" (click)="joinTheSHG(shg._id)">Join</button>
+                                <!-- <button type="button" class="btn btn-success btn-sm">Join</button> -->
+                                <button type="button" class="btn btn-danger btn-sm">Message</button>
+                            </div>
+                            <!-- END SIDEBAR BUTTONS -->
+                            <!-- SIDEBAR MENU -->
+                            <!-- <div class="profile-usermenu"> -->
+                                <!-- <ul class="nav">
+                                    <li class="active">
+                                        <a href="#">
+                                        <i class="glyphicon glyphicon-home"></i>
+                                        Overview </a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a href="https://codepen.io/jasondavis/pen/jVRwaG?editors=1000">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        Account Settings </a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a href="#" target="_blank">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                        Tasks </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        <i class="glyphicon glyphicon-flag"></i>
+                                        Help </a>
+                                    </li> -->
+                                <!-- </ul>
+                            </div> -->
+                            <!-- END MENU -->
+                        
+                    <div class="portlet light bordered">
+                                                            <!-- STAT -->
+                                                            <div class="row list-separated profile-stat" style="justify-content: center;">
+                                                                <div class="col-md-4 col-sm-4 col-xs-6">
+                                                                    <div class="uppercase profile-stat-title"> {{shg.mentees.length}} </div>
+                                                                    <div class="uppercase profile-stat-text"> Members </div>
+                                                                </div>
+                                                                <!-- <div class="col-md-4 col-sm-4 col-xs-6">
+                                                                    <div class="uppercase profile-stat-title"> 30 </div>
+                                                                    <div class="uppercase profile-stat-text"> Trainings </div>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-6">
+                                                                    <div class="uppercase profile-stat-title"> 3 </div>
+                                                                    <div class="uppercase profile-stat-text"> Goals Met </div>
+                                                                </div> -->
                                                             </div>
-                                                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                                                <div class="uppercase profile-stat-title"> 30 </div>
-                                                                <div class="uppercase profile-stat-text"> Trainings </div>
-                                                            </div>
-                                                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                                                <div class="uppercase profile-stat-title"> 3 </div>
-                                                                <div class="uppercase profile-stat-text"> Goals Met </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- END STAT -->
-                                                         <div>
-                                                            <h4 class="profile-desc-title">About </h4>
-                                                            <span class="profile-desc-text"> Working with Women of Dibrugarh to help bring scientific practises of irrigation to their district </span>
-                                                          
+                                                            <!-- END STAT -->
+                                                            <div>
+                                                                <h4 class="profile-desc-title">About </h4>
+                                                                <span class="profile-desc-text"> {{shg.about}} </span>
                                                             
-                                                            </div></div>                   
-                                                   
-                
-                
+                                                                
+                                                                </div></div>                   
+                                                    
+                    
+                    
+                        </div>
                     </div>
+                    <!-- <div class="col-md-9">
+                        <div class="profile-content">
+                        Some user related content goes here...
+                        </div>
+                    </div> -->
                 </div>
-                <!-- <div class="col-md-9">
-                    <div class="profile-content">
-                       Some user related content goes here...
-                    </div>
-                </div> -->
             </div>
-        </div>
-        
-        <!-- JOIN LINK. ROUTE TO login-my-shg COMPONENT AFTER THIS WITH THIS shg's ID OR ENTIRE DATA -->
-        <!-- <button (click)="joinTheSHG(shg._id)">JOIN</button> -->
-    </li>
-</ul>
+            
+            <!-- JOIN LINK. ROUTE TO login-my-shg COMPONENT AFTER THIS WITH THIS shg's ID OR ENTIRE DATA -->
+            <!-- <button (click)="joinTheSHG(shg._id)">JOIN</button> -->
+        </li>
+    </ul>
+</div>

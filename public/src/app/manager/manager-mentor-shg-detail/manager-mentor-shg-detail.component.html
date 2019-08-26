@@ -1,31 +1,122 @@
-<h2>{{mentor.first_name}} {{mentor.last_name}}</h2>
-<div>Email : {{mentor.email}}</div>
-<div>Age : {{mentor.age}}</div>
-<div>Sex : {{mentor.sex}}</div>
-<div>Address : {{mentor.address}}</div>
-<div>Country : {{mentor.country}}</div>
-<div>Phone Number : {{mentor.phone_number}}</div>
-<p>About : {{mentor.about}}</p>
+<div class="container mt-5 pt-3">
+    <div class="row" style="text-align: center; justify-content: center;">
+    <div class="col-md-8" style="border: 3px solid; width: 200px; margin: 10px; display: flex; flex-direction: column;">
 
-<hr>
-<hr>
+        <div class="row">
+            <h3 style="width: 100%; padding: 5px; background-color: #28c3d4; border: 1px solid; border-color: white;">{{mentor?.first_name}} {{mentor?.last_name}}</h3>
+        </div>
 
-<h3>SHG : {{shg?.name}}</h3>
-<p>About : {{shg?.about}}</p>
-<div>Address : {{shg?.address}}</div>
-<div>Country : {{shg?.country}}</div>
-<div>Amount : {{shg?.amount}}</div>
-<div>
-        Member IDs :-
-        <ul>
-            <li *ngFor="let mentor_id of shg?.mentees">
-                {{mentor_id}}
+        <table class="table table-striped" style="width: 100%; margin-bottom: 8px;">
+            <tbody>
+                <tr scope="row">
+                    <td>
+                        Email
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.email}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        Age
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.age}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        Sex
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.sex}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        Address
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.address}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        Country
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.country}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        Phone Number
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.phone_number}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        About
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.about}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="row" *ngIf="shg">
+            <h3 style="width: 100%; padding: 5px; background-color: #28c3d4; border: 1px solid; border-color: white;">{{shg?.name}}</h3>
+        </div>
+
+        <table class="table table-striped" style="width: 100%; margin-bottom: 8px;" *ngIf="shg">
+            <tbody> 
+                <tr scope="row">
+                    <td>
+                        About
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{shg?.about}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        Address
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{shg?.address}}
+                    </td>
+                </tr>
+
+                <tr scope="row">
+                    <td>
+                        Country
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{shg?.country}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row" *ngIf="shg">
+            <h3 style="width: 100%; padding: 5px; background-color: #28c3d4; border: 1px solid; border-color: white;">Logs</h3>
+        </div>
+
+        <ul *ngIf="shg?.logs" style="text-align: left;">
+            <li *ngFor="let log of shg?.logs">
+                {{log}}
             </li>
         </ul>
     </div>
-<h5>Logs :- </h5>
-<ul *ngIf="shg?.logs">
-    <li *ngFor="let log of shg?.logs">
-        {{log}}
-    </li>
-</ul>
+    </div>
+</div>

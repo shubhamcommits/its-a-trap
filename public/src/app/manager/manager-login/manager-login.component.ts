@@ -66,7 +66,7 @@ export class ManagerLoginComponent implements OnInit {
       this.authService.loggedUser.next("manager");
       localStorage.setItem('Manager', JSON.stringify(res['manager']));
       localStorage.setItem('Token', JSON.stringify(res['token']));
-      this.router.navigate(['manager', 'dashboard']);
+      this.router.navigate(['manager', 'dashboard', 'mentors']);
     }, (err)=>{
       console.log('Error fetched', err);
     })

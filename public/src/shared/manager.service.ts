@@ -45,7 +45,7 @@ export class ManagerService {
       shg_id: shg_id,
       manager_id: manager_id
     }
-    return this._http.post(this.BASE_API_URL + `/data/manager/approve-pending-mentor`, comb);
+    return this._http.post(this.BASE_API_URL + `/data/manager/approve-pending-shg`, comb);
   }
 
   getAllManagers() {

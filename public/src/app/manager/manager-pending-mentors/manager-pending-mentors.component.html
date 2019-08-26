@@ -1,14 +1,86 @@
-<ul>
-    <li *ngFor="let pending_mentor of pending_mentors">
-        <h3>{{pending_mentor.first_name}} {{pending_mentor.last_name}}</h3>
-        <div>Email : {{pending_mentor.email}}</div>
-        <div>Age : {{pending_mentor.age}}</div>
-        <div>Sex : {{pending_mentor.sex}}</div>
-        <div>Address : {{pending_mentor.address}}</div>
-        <div>Country : {{pending_mentor.country}}</div>
-        <div>Phone Number : {{pending_mentor.phone_number}}</div>
-        <p>About : {{pending_mentor.about}}</p>
-        <button (click)="acceptMentor(pending_mentor._id)">ACCEPT</button>
-        <button (click)="rejectMentor(pending_mentor._id)">REJECT</button>
-    </li>
-</ul>
+<div class="container mt-5 pt-3">
+    <div class="row" style="text-align: center; justify-content: center;">
+    <div class="col-md-5" *ngFor="let mentor of pending_mentors" style="border: 3px solid; width: 200px; margin: 10px; display: flex; flex-direction: column;">
+
+        <div class="row">
+            <h3 style="width: 100%; padding: 5px; background-color: #28c3d4; border: 1px solid; border-color: white;">{{mentor?.first_name}} {{mentor?.last_name}}</h3>
+        </div>
+
+        <table class="table table-striped" style="width: 100%; margin-bottom: 8px;">
+            <tbody>
+                <tr scope="row">
+                    <td>
+                        Email
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.email}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        Age
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.age}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        Sex
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.sex}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        Address
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.address}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        Country
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.country}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        Phone Number
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.phone_number}}
+                    </td>
+                </tr>
+    
+                <tr scope="row">
+                    <td>
+                        About
+                    </td>
+                    <td style="font-weight: bold;">
+                        {{mentor.about}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row mt-3" style="background-color: #28c3d4; border: 1px solid; border-color: white; margin-top: auto !important; margin-bottom: 0px !important;">
+            <div style="margin: auto; padding: 5px;">
+                <button class="btn btn-primary" (click)="acceptMentor(mentor._id)">ACCEPT</button>
+            </div>
+            <div style="margin: auto; padding: 5px;">
+                <button class="btn btn-danger" (click)="rejectMentor(mentor._id)">REJECT</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
