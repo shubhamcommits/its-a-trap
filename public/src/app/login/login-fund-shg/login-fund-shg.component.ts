@@ -9,6 +9,8 @@ export class LoginFundShgComponent implements OnInit {
 
   constructor() { }
 
+  shgs: any;
+
   ngOnInit() {
   }
 
