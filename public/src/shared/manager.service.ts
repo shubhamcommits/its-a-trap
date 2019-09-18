@@ -59,6 +59,9 @@ export class ManagerService {
   public getVegJSON(): Observable<any> {
     return this._http.get('../assets/JSONs/deforestation.json');
   }
+  public getCourseJSON(): Observable<any> {
+    return this._http.get('../assets/JSONs/course.json');
+  }
   public getRainfallJSON(): Observable<any> {
     return this._http.get('../assets/JSONs/rainfall_region.json');
   }

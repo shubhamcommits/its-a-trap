@@ -22,6 +22,7 @@ router.post('/mentor/add-manager',mentor.add_manager);
 router.post('/mentor/apply-shg',mentor.apply_shg);
 router.post('/mentor/add-shg',mentor.add_shg);
 router.post('/mentor/add-mentee',mentor.add_mentee);
+router.post('/mentor/deshboard',mentor.deshboard);
 
 router.get('/manager/get-all-managers',manager.get_all_managers);
 router.post('/manager/get-manager',manager.get_manager);

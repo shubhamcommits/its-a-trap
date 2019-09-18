@@ -1,0 +1,12 @@
+{
+  "slug-1" : {
+     "name": "COURSE 1",
+     "tagline": "TAGLINE 1",
+     "details": "DESC 1"
+  },
+  "slug-2" : {
+     "name": "COURSE 2",
+     "tagline": "TAGLINE 2",
+     "details": "DESC 2"
+  }
+}

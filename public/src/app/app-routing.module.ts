@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'new/transaction/pending', component: PendingTransactionsComponent },
   { path: 'wallet/:address', component: WalletBalanceComponent },
   { path: 'manager/dashboard/mentors', component:ManagerDashboardComponent },
+  { path: 'dashboard/mantor', component:DashboardComponent },
   { path: 'manager/dashboard/pending/mentors', component: ManagerPendingMentorsComponent },
   { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent },
   { path: 'lms', component: LmsComponent },
