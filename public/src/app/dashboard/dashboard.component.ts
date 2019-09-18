@@ -10,15 +10,12 @@ export class DashboardComponent implements OnInit {
   products: object;
 
   constructor(private managerService: ManagerService) {
-    try{
+
       this.managerService.getCourseJSON().subscribe((res)=>{
-        console.log(res);
-        this.products = res;
+        console.log(JSON.parse(res));
+        this.products = JSON.parse(res);
       });
-    }
-    catch (error) {
-      console.error('Log error', error);
-    }
+
 
 
 

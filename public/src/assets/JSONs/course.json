@@ -1,12 +1,44 @@
 {
-  "slug-1" : {
-     "name": "COURSE 1",
-     "tagline": "TAGLINE 1",
-     "details": "DESC 1"
+  "sustainable-use-of-resources" : {
+     "title": "Sustainable Use of Resources",
+     "summary": "This course teaches about the importance of depleting natural resources and practices that lead to sustainable use of these reources. ",
+     "category": "Natural resource",
+	 "image" : "../assets/courses/9.jpg"
   },
-  "slug-2" : {
-     "name": "COURSE 2",
-     "tagline": "TAGLINE 2",
-     "details": "DESC 2"
+  "pollution" : {
+     "title": "Pollution",
+     "summary": "This course teaches about practices and substances/materials that lead to pollution and teaches practices that cut down on pollution. ",
+     "category": "Pollution",
+	 "image" : "./assets/courses/2.jpg"
+  },
+  "digital-literacy" : {
+     "title": "Digital Literacy",
+     "summary": "This course teaches people the basics of using the internet to communicate, gather information and use it as a means of business. ",
+     "category": "Digital Literacy",
+	 "image" : "./assets/courses/3.jpg"
+  },
+  "rain-water-harvesting" : {
+     "title": "Rain Water Harvesting",
+     "summary": "This course helps people to follow basics of rainwater harvesting in everyday life and also teaches them about the value of water as a commodity.  ",
+     "category": "Rain Water Harvesting",
+	 "image" : "./assets/courses/4.jpg"
+  },
+  "women-health-and-sanitation" : {
+     "title": "Women Health and Sanitation",
+     "summary": "This course teaches women about the importance of physical, mental, and social wellbeing and how to lead a healthy life by following basic practices. ",
+     "category": "Women Health",
+	 "image" : "./assets/courses/7.jpg"
+  },
+  "basics-of-marketing" : {
+     "title": "Basics of Marketing",
+     "summary": "This course teaches people the necessary skills to start selling products or services, using competent and basic marketing techniques.",
+     "category": "Marketing",
+	 "image" : "./assets/courses/10.jpg"
   }
+  
+  
+  
+  
+  
+  
 }

@@ -49,6 +49,7 @@ import { ShgService } from 'src/shared/shg.service';
 import { UserService } from 'src/shared/user.service';
 import { VegetationComponent } from './vegetation/vegetation.component';
 import { MentorService } from 'src/shared/mentor.service';
+import { LmsDetailComponent } from './lms-detail/lms-detail.component';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -112,7 +113,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MentorMyShgComponent,
     MentorLmsComponent,
     LmsComponent,
-    VegetationComponent
+    VegetationComponent,
+    LmsDetailComponent
   ],
   imports: [
     BrowserModule,

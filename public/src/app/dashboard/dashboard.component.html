@@ -1,11 +1,19 @@
 
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="../assets/css/flaticon.css"/>
+<link rel="stylesheet" href="../assets/css/style.css"/>
 
-<div *ngFor="let product of products; index as productId">
 
-  <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-      {{ product.name }}
-    </a>
-  </h3>
-
-</div>
+<section id="courses-single" class="pt-90 pb-120 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <a [routerLink]="['/lms']">
+                <div class="courses-single-left mt-30 card">
+                    View courses
+                </div>
+              </a>
+            </div>
+        </div>
+    </div>
+</section>

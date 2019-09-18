@@ -20,6 +20,7 @@ import { ManagerDashboardComponent } from './manager/manager-dashboard/manager-d
 import { ManagerPendingMentorsComponent } from './manager/manager-pending-mentors/manager-pending-mentors.component';
 import { ManagerPendingShgsComponent } from './manager/manager-pending-shgs/manager-pending-shgs.component';
 import { LmsComponent } from './lms/lms.component';
+import { LmsDetailComponent } from './lms-detail/lms-detail.component';
 import { ManagerMentorShgDetailComponent } from './manager/manager-mentor-shg-detail/manager-mentor-shg-detail.component';
 import { AgricultureComponent } from './agriculture/agriculture.component';
 
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'manager/dashboard/pending/mentors', component: ManagerPendingMentorsComponent },
   { path: 'manager/dashboard/pending/shg', component: ManagerPendingShgsComponent },
   { path: 'lms', component: LmsComponent },
+  { path: 'courses/:id', component: LmsDetailComponent },
   { path: 'manager/mentor/shg/detail/:id', component: ManagerMentorShgDetailComponent},
   { path: 'manager/dashboard/agriculture', component: AgricultureComponent},
   { path: 'user/join-shg', component:LoginJoinShgComponent},

@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ManagerService } from 'src/shared/manager.service';
 
 @Component({
-  selector: 'app-lms',
-  templateUrl: './lms.component.html',
-  styleUrls: ['./lms.component.scss']
+  selector: 'app-lms-detail',
+  templateUrl: './lms-detail.component.html',
+  styleUrls: ['./lms-detail.component.scss']
 })
-
-export class LmsComponent implements OnInit {
+export class LmsDetailComponent implements OnInit {
+  details: any;
+  slug: any;
   loadAPI: Promise<any>;
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute,private managerService: ManagerService){
     this.loadAPI = new Promise((resolve) => {
       this.loadScript();
       resolve(true);
-  });
+    });
+    this.slug = this.activatedRoute.snapshot.paramMap['params']['id'];
+    this.managerService.getCourseJSON().subscribe((res)=>{
+      console.log(res);
+      this.details = res[this.slug];
+    });
 
   }
 

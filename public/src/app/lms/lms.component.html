@@ -1,3 +1,11 @@
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../assets/css/flaticon.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../assets/css/style.css"/>
+
 <section class="courses-section spad">
     <div class="container">
         <div class="sec-title text-center">
@@ -6,10 +14,11 @@
         <div class="course-slider owl-carousel">
             <!-- course -->
             <div class="course-item ">
-                <figure class="course-preview">
-                    <img src="../../assets/courses/9.jpg" alt="">
-                </figure>
-            
+                <a [routerLink]="['/courses', 'sustainable-use-of-resources']">
+                  <figure class="course-preview">
+                      <img src="../assets/courses/9.jpg" alt="">
+                  </figure>
+
                 <div class="course-content">
                     <div class="cc-text">
                         <h5>Sustainable Use of Resources</h5>
@@ -25,11 +34,13 @@
                         </div>
                     </div>
                 </div>
+              </a>
             </div>
             <!-- course -->
             <div class="course-item">
+              <a [routerLink]="['/courses', 'pollution']">
                 <figure class="course-preview">
-                    <img src="../../assets/courses/2.jpg" alt="">
+                    <img src="../assets/courses/2.jpg" alt="">
                 </figure>
                 <div class="course-content">
                     <div class="cc-text">
@@ -46,9 +57,11 @@
                         </div>
                     </div>
                 </div>
+              </a>
             </div>
             <!-- course -->
             <div class="course-item">
+                <a [routerLink]="['/courses', 'digital-literacy']">
                 <figure class="course-preview">
                     <img src="../../assets/courses/3.jpg" alt="">
                 </figure>
@@ -67,9 +80,11 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
             <!-- course -->
             <div class="course-item">
+                <a [routerLink]="['/courses', 'rain-water-harvesting']">
                 <figure class="course-preview">
                     <img src="../../assets/courses/4.jpg" alt="">
                 </figure>
@@ -88,10 +103,12 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
             <!-- course -->
             <!-- course -->
             <div class="course-item">
+                <a [routerLink]="['/courses', 'women-health-and-sanitation']">
                 <figure class="course-preview">
                     <img src="../../assets/courses/7.jpg" alt="">
                 </figure>
@@ -110,9 +127,11 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
             <!-- course -->
             <div class="course-item">
+                <a [routerLink]="['/courses', 'basics-of-marketing']">
                 <figure class="course-preview">
                     <img src="../../assets/courses/10.jpg" alt="">
                 </figure>
@@ -131,7 +150,9 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>
 </section>
+
